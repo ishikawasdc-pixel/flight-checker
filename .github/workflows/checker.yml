@@ -1,29 +1,31 @@
-name: Flight Price Checker
+name: Flight Price Checker Page
 
 on:
   schedule:
-    # 毎日日本時間の朝9:00（UTC 0:00）に実行
-    - cron: '0 0 * * *'
-  # 手動実行用ボタンを表示
-  workflow_dispatch:
+    - cron: '0 0 * * *' # 毎日日本時間 9:00 に自動更新
+  workflow_dispatch:     # 手動実行ボタン
 
 jobs:
-  check:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
-    - name: コードを取得
-      uses: actions/checkout@v4
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@v4
 
-    - name: Pythonをセットアップ
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
+      - name: Pythonのセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
 
-    - name: 必要なライブラリをインストール
-      run: pip install requests
+      - name: スクリプト実行（データ更新）
+        run: python main.py
 
-    - name: スクリプト実行
-      env:
-        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-      run: python main.py
+      - name: 更新されたデータを保存
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update price data" && git push)
