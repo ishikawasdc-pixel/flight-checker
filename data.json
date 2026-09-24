@@ -1,0 +1,62 @@
+{
+    "route": "OSA (大阪すべて) ⇆ OKA (沖縄/那覇)",
+    "outbound_date": "2027-02-05",
+    "inbound_date": "2027-02-08",
+    "total_min_price": 29500,
+    "outbound_flights": [
+        {
+            "flight_num": "ANA761",
+            "time": "08:00 発 -> 10:15 着",
+            "price": 16000
+        },
+        {
+            "flight_num": "ANA763",
+            "time": "11:15 発 -> 13:30 着",
+            "price": 14500
+        },
+        {
+            "flight_num": "ANA767",
+            "time": "14:40 発 -> 16:55 着",
+            "price": 18000
+        },
+        {
+            "flight_num": "ANA769",
+            "time": "17:30 発 -> 19:45 着",
+            "price": 20000
+        },
+        {
+            "flight_num": "ANA773",
+            "time": "19:15 発 -> 21:30 着",
+            "price": 22000
+        }
+    ],
+    "inbound_flights": [
+        {
+            "flight_num": "ANA762",
+            "time": "08:00 発 -> 10:00 着",
+            "price": 16000
+        },
+        {
+            "flight_num": "ANA764",
+            "time": "11:10 発 -> 13:05 着",
+            "price": 15000
+        },
+        {
+            "flight_num": "ANA768",
+            "time": "14:20 発 -> 16:15 着",
+            "price": 17500
+        },
+        {
+            "flight_num": "ANA770",
+            "time": "18:00 発 -> 19:55 着",
+            "price": 19000
+        },
+        {
+            "flight_num": "ANA772",
+            "time": "20:30 発 -> 22:25 着",
+            "price": 20000
+        }
+    ],
+    "link": "https://www.ana.co.jp/",
+    "updated_at": "2026-09-24 07:06:23"
+}
