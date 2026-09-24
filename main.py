@@ -1,4 +1,4 @@
-iimport os
+import os
 import requests
 
 # GitHub SecretsからDiscordのWebhook URLを取得
