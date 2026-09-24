@@ -1,97 +1,62 @@
 import os
-import requests
+import json
+from datetime import datetime
 
-# GitHub SecretsからDiscordのWebhook URLを取得
-DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
-
-# 目標設定（往復の合計上限金額）
-TARGET_PRICE = 35000
-
+# 条件設定
 SEARCH_PARAMS = {
-    "origin": "OSA (大阪)",
-    "destination": "OKA (沖縄/那覇)",
+    "route": "OSA (大阪すべて) ⇆ OKA (沖縄/那覇)",
     "outbound_date": "2027-02-05",  # 行き
     "inbound_date": "2027-02-08",   # 帰り
     "airline": "ANA"
 }
 
-def fetch_flight_prices(params):
+def generate_flight_data():
     """
-    航空券価格を取得する関数
-    ※ 実際の運用時は外部API（Amadeus APIやSkyscanner API等）から全便データを取得します。
+    全便価格データを生成／取得する関数
+    ※現在はダミーデータです。本物データ連携時もこの形式で書き出します。
     """
-    print(f"全便価格確認中: {params['origin']} <-> {params['destination']}")
+    outbound_flights = [
+        {"flight_num": "ANA761", "time": "08:00 発 -> 10:15 着", "price": 16000},
+        {"flight_num": "ANA763", "time": "11:15 発 -> 13:30 着", "price": 14500}, # 最安値
+        {"flight_num": "ANA767", "time": "14:40 発 -> 16:55 着", "price": 18000},
+        {"flight_num": "ANA769", "time": "17:30 発 -> 19:45 着", "price": 20000},
+        {"flight_num": "ANA773", "time": "19:15 発 -> 21:30 着", "price": 22000}, # 最終便
+    ]
     
-    # テスト用ダミーデータ（行き・帰りの全便スケジュールと価格）
-    return {
-        "outbound_flights": [
-            {"time": "08:00 発 -> 10:15 着", "flight_num": "ANA761", "price": 16000},
-            {"time": "11:15 発 -> 13:30 着", "flight_num": "ANA763", "price": 14500}, # 最安値
-            {"time": "14:40 発 -> 16:55 着", "flight_num": "ANA767", "price": 18000},
-            {"time": "17:30 発 -> 19:45 着", "flight_num": "ANA769", "price": 20000},
-            {"time": "19:15 発 -> 21:30 着", "flight_num": "ANA773", "price": 22000}, # 最終便
-        ],
-        "inbound_flights": [
-            {"time": "08:00 発 -> 10:00 着", "flight_num": "ANA762", "price": 16000}, # 始発便
-            {"time": "11:10 発 -> 13:05 着", "flight_num": "ANA764", "price": 15000}, # 最安値
-            {"time": "14:20 発 -> 16:15 着", "flight_num": "ANA768", "price": 17500},
-            {"time": "18:00 発 -> 19:55 着", "flight_num": "ANA770", "price": 19000},
-            {"time": "20:30 発 -> 22:25 着", "flight_num": "ANA772", "price": 20000}, # 最終便
-        ],
-        "link": "https://www.ana.co.jp/"
-    }
+    inbound_flights = [
+        {"flight_num": "ANA762", "time": "08:00 発 -> 10:00 着", "price": 16000}, # 始発便
+        {"flight_num": "ANA764", "time": "11:10 発 -> 13:05 着", "price": 15000}, # 最安値
+        {"flight_num": "ANA768", "time": "14:20 発 -> 16:15 着", "price": 17500},
+        {"flight_num": "ANA770", "time": "18:00 発 -> 19:55 着", "price": 19000},
+        {"flight_num": "ANA772", "time": "20:30 発 -> 22:25 着", "price": 20000}, # 最終便
+    ]
 
-def send_discord_alert(data):
-    """DiscordのWebhookを使って全便の価格一覧を送信"""
-    
-    # 行き全便テキストの構築
-    outbound_text = ""
-    for f in data["outbound_flights"]:
-        outbound_text += f"・`{f['time']}` ({f['flight_num']}) : **{f['price']:,} 円**\n"
-    
-    # 帰り全便テキストの構築
-    inbound_text = ""
-    for f in data["inbound_flights"]:
-        inbound_text += f"・`{f['time']}` ({f['flight_num']}) : **{f['price']:,} 円**\n"
-
-    # 行き・帰りの最安値を計算して往復合計を算出
-    min_outbound = min(f["price"] for f in data["outbound_flights"])
-    min_inbound = min(f["price"] for f in data["inbound_flights"])
+    min_outbound = min(f["price"] for f in outbound_flights)
+    min_inbound = min(f["price"] for f in inbound_flights)
     total_min_price = min_outbound + min_inbound
 
-    payload = {
-        "content": (
-            f"🚨 **【全便価格一覧】航空券アラート！** 🚨\n\n"
-            f"**【区間】**: {SEARCH_PARAMS['origin']} ⇆ {SEARCH_PARAMS['destination']} ({SEARCH_PARAMS['airline']})\n"
-            f"**【日程】**: 行き {SEARCH_PARAMS['outbound_date']} ／ 帰り {SEARCH_PARAMS['inbound_date']}\n\n"
-            f"✈️ **【行き（往路）全便価格】**\n"
-            f"{outbound_text}\n"
-            f"✈️ **【帰り（復路）全便価格】**\n"
-            f"{inbound_text}\n"
-            f"💰 **【往復組合せ最安値】**: **{total_min_price:,} 円**（目標: {TARGET_PRICE:,} 円以下）\n\n"
-            f"▼ 予約・詳細はこちら\n{data['link']}"
-        )
+    # Webページ（index.html）で読み込むデータオブジェクト
+    data = {
+        "route": SEARCH_PARAMS["route"],
+        "outbound_date": SEARCH_PARAMS["outbound_date"],
+        "inbound_date": SEARCH_PARAMS["inbound_date"],
+        "total_min_price": total_min_price,
+        "outbound_flights": outbound_flights,
+        "inbound_flights": inbound_flights,
+        "link": "https://www.ana.co.jp/",
+        "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
     
-    response = requests.post(DISCORD_WEBHOOK_URL, json=payload)
-    if response.status_code == 204:
-        print("Discordへの通知送信に成功しました！")
-    else:
-        print(f"送信失敗: {response.status_code} - {response.text}")
+    return data
 
 def main():
-    flight_data = fetch_flight_prices(SEARCH_PARAMS)
+    data = generate_flight_data()
     
-    min_outbound = min(f["price"] for f in flight_data["outbound_flights"])
-    min_inbound = min(f["price"] for f in flight_data["inbound_flights"])
-    total_price = min_outbound + min_inbound
-    
-    print(f"取得した往復最安値: {total_price}円")
-    
-    if total_price <= TARGET_PRICE:
-        send_discord_alert(flight_data)
-    else:
-        print("目標価格以上のため通知をスキップしました。")
+    # Webページ用に data.json として保存
+    with open("data.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+        
+    print("Web用データ (data.json) の更新に成功しました！")
 
 if __name__ == "__main__":
     main()
