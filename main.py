@@ -5,27 +5,24 @@ import requests
 # GitHub SecretsからDiscordのWebhook URLを取得
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
-# 目標設定（円）
-TARGET_PRICE = 15000
+# 目標設定（例：20,000円以下なら通知）
+TARGET_PRICE = 20000
 
 SEARCH_PARAMS = {
-    "origin": "TYO (東京)",
-    "destination": "OKA (沖縄)",
-    "date": "2026-11-01"
+    "origin": "OSA (大阪すべて / 伊丹・関空・神戸)",
+    "destination": "OKA (沖縄/那覇)",
+    "date": "2027-02-05",  # ※出発日に合わせて変更してください
+    "airline": "ANA"
 }
 
 def fetch_flight_prices(params):
-    """
-    航空券価格を取得する関数
-    ※ 実際の運用時はSkyscanner APIやAmadeus APIなどの処理に差し替えます。
-    """
     print(f"価格確認中: {params['origin']} -> {params['destination']} ({params['date']})")
     
-    # テスト用ダミーデータ
+    # テスト用ダミーデータ（ANA 大阪→沖縄想定）
     return {
-        "min_price": 12800,
-        "airline": "Peach / Jetstar 比較",
-        "link": "https://www.skyscanner.jp/"
+        "min_price": 14500,
+        "airline": "ANA",
+        "link": "https://www.ana.co.jp/"
     }
 
 def send_discord_alert(data):
