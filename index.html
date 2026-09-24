@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANA 大阪-沖縄 航空券価格チェッカー</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #004098; font-size: 24px; border-bottom: 2px solid #004098; padding-bottom: 10px; margin-top: 0; }
+        .info-card { background: #eef5ff; border-left: 5px solid #004098; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
+        .price-badge { font-size: 20px; font-weight: bold; color: #d9534f; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f8f9fa; color: #555; }
+        .section-title { margin-top: 30px; font-size: 18px; color: #004098; }
+        .last-updated { font-size: 12px; color: #888; text-align: right; margin-top: 15px; }
+        .btn { display: inline-block; padding: 10px 20px; background: #004098; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; }
+        .btn:hover { background: #002d6b; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✈️ ANA 大阪 ⇆ 沖縄 価格チェッカー</h1>
+        
+        <div class="info-card">
+            <p><strong>【区間】</strong> <span id="route">-</span></p>
+            <p><strong>【日程】</strong> 行き: <span id="outbound-date">-</span> ／ 帰り: <span id="inbound-date">-</span></p>
+            <p><strong>【往復最安値】</strong> <span class="price-badge" id="total-min-price">-</span></p>
+        </div>
+
+        <div class="section-title">✈️ 行き（往路）全便価格</div>
+        <table>
+            <thead>
+                <tr><th>便名</th><th>時間</th><th>価格</th></tr>
+            </thead>
+            <tbody id="outbound-table"></tbody>
+        </table>
+
+        <div class="section-title">✈️ 帰り（復路）全便価格</div>
+        <table>
+            <thead>
+                <tr><th>便名</th><th>時間</th><th>価格</th></tr>
+            </thead>
+            <tbody id="inbound-table"></tbody>
+        </table>
+
+        <div style="text-align: center;">
+            <a id="ana-link" href="#" target="_blank" class="btn">ANA公式サイトで予約・詳細を見る</a>
+        </div>
+
+        <div class="last-updated">最終更新日時: <span id="updated-at">-</span></div>
+    </div>
+
+    <script>
+        fetch('data.json')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('route').innerText = data.route;
+                document.getElementById('outbound-date').innerText = data.outbound_date;
+                document.getElementById('inbound-date').innerText = data.inbound_date;
+                document.getElementById('total-min-price').innerText = data.total_min_price.toLocaleString() + ' 円';
+                document.getElementById('updated-at').innerText = data.updated_at;
+                document.getElementById('ana-link').href = data.link;
+
+                const renderTable = (targetId, flights) => {
+                    const tbody = document.getElementById(targetId);
+                    tbody.innerHTML = '';
+                    flights.forEach(f => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `<td><strong>${f.flight_num}</strong></td><td>${f.time}</td><td><strong>${f.price.toLocaleString()} 円</strong></td>`;
+                        tbody.appendChild(tr);
+                    });
+                };
+
+                renderTable('outbound-table', data.outbound_flights);
+                renderTable('inbound-table', data.inbound_flights);
+            })
+            .catch(err => console.error('データ読み込みエラー:', err));
+    </script>
+</body>
+</html>
