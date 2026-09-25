@@ -1,80 +1,106 @@
 import json
 import datetime
 from datetime import timedelta
-import random
+import time
+from playwright.sync_api import sync_playwright
 
-def generate_flight_data():
+def fetch_google_flights_data(page, origin, dest, date_str):
     """
-    主要路線（東京、大阪、沖縄、福岡、札幌）に対応したデータ生成スクリプト
+    GoogleフライトのURLを構築してアクセスし、実際の便情報と価格を取得する
     """
-    # 検索対象路線の拡充
-    routes = [
-        # 大阪発
-        {"origin": "ITM", "origin_name": "大阪 (OSA)", "dest": "OKA", "dest_name": "沖縄 (OKA)"},
-        {"origin": "ITM", "origin_name": "大阪 (OSA)", "dest": "FUK", "dest_name": "福岡 (FUK)"},
-        {"origin": "ITM", "origin_name": "大阪 (OSA)", "dest": "TYO", "dest_name": "東京 (TYO)"},
-        {"origin": "ITM", "origin_name": "大阪 (OSA)", "dest": "CTS", "dest_name": "札幌 (CTS)"},
-        # 東京発
-        {"origin": "TYO", "origin_name": "東京 (TYO)", "dest": "OKA", "dest_name": "沖縄 (OKA)"},
-        {"origin": "TYO", "origin_name": "東京 (TYO)", "dest": "FUK", "dest_name": "福岡 (FUK)"},
-        {"origin": "TYO", "origin_name": "東京 (TYO)", "dest": "CTS", "dest_name": "札幌 (CTS)"},
-        {"origin": "TYO", "origin_name": "東京 (TYO)", "dest": "OSA", "dest_name": "大阪 (OSA)"},
-    ]
+    # Google FlightsのダイレクトURL作成 (例: OSA -> OKA)
+    url = f"https://www.google.com/travel/flights?q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date_str}%20one-way"
+    print(f"URLアクセス中: {url}")
+    
+    try:
+        page.goto(url, wait_until="networkidle", timeout=60000)
+        time.sleep(3) # ページの読み込み完了を少し待機
+        
+        flights = []
+        # Googleフライトの便結果要素を取得
+        cards = page.query_selector_all('li.pI213d')
+        
+        for card in cards[:3]: # 上位3便を取得
+            try:
+                # 航空会社名
+                airline_elem = card.query_selector('div.sA23be')
+                airline = airline_elem.inner_text().strip() if airline_elem else "不明"
+                
+                # 時間情報
+                time_elem = card.query_selector('div.gB1p2c')
+                flight_time = time_elem.inner_text().replace('\n', ' ').strip() if time_elem else "時間情報なし"
+                
+                # 価格情報
+                price_elem = card.query_selector('div.YMlA3d span')
+                price_str = price_elem.inner_text().replace('￥', '').replace(',', '').strip() if price_elem else "0"
+                price = int(price_str) if price_str.isdigit() else 0
 
-    # 日付設定 (実行日の30日後〜33日後)
+                if price > 0:
+                    flights.append({
+                        "flight_num": airline,
+                        "time": flight_time,
+                        "price": price
+                    })
+            except Exception as e:
+                continue
+                
+        return flights
+    except Exception as e:
+        print(f"エラー発生 ({origin} -> {dest}): {e}")
+        return []
+
+def main():
     today = datetime.date.today()
-    outbound_date_str = (today + timedelta(days=30)).strftime("%Y-%m-%d")
-    inbound_date_str = (today + timedelta(days=33)).strftime("%Y-%m-%d")
+    outbound_date = (today + timedelta(days=30)).strftime("%Y-%m-%d")
+    inbound_date = (today + timedelta(days=33)).strftime("%Y-%m-%d")
+
+    # 検索対象の主要ルートリスト
+    route_targets = [
+        {"origin_code": "ITM", "origin_label": "大阪 (OSA)", "dest_code": "OKA", "dest_label": "沖縄 (OKA)"},
+        {"origin_code": "TYO", "origin_label": "東京 (TYO)", "dest_code": "OKA", "dest_label": "沖縄 (OKA)"},
+        {"origin_code": "TYO", "origin_label": "東京 (TYO)", "dest_code": "FUK", "dest_label": "福岡 (FUK)"},
+        {"origin_code": "TYO", "origin_label": "東京 (TYO)", "dest_code": "CTS", "dest_label": "札幌 (CTS)"},
+    ]
 
     schedules_data = []
 
-    print(f"--- データ自動生成開始 ({outbound_date_str} 〜 {inbound_date_str}) ---")
+    with sync_playwright() as p:
+        # ヘッドレスブラウザを起動
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+            locale="ja-JP"
+        )
+        page = context.new_page()
 
-    for r in routes:
-        route_display_name = f"{r['origin_name']} ➔ {r['dest_name']}"
-        
-        airlines_config = [
-            {"code": "ANA", "outbound_num": "NH761", "inbound_num": "NH762", "base_price": 15000},
-            {"code": "JAL", "outbound_num": "JL2081", "inbound_num": "JL2082", "base_price": 14500}
-        ]
+        for route in route_targets:
+            route_name = f"{route['origin_label']} ➔ {route['dest_label']}"
+            print(f"--- 取得中: {route_name} ---")
 
-        for config in airlines_config:
-            airline = config["code"]
-            
-            price_fluctuation = random.choice([-1000, -500, 0, 500, 1500])
-            out_price_1 = config["base_price"] + price_fluctuation
-            out_price_2 = config["base_price"] + price_fluctuation + 1500
+            # 往路データ取得
+            outbound_flights = fetch_google_flights_data(page, route["origin_code"], route["dest_code"], outbound_date)
+            # 復路データ取得
+            inbound_flights = fetch_google_flights_data(page, route["dest_code"], route["origin_code"], inbound_date)
 
-            in_price_1 = config["base_price"] + price_fluctuation - 300
-            in_price_2 = config["base_price"] + price_fluctuation + 800
+            if outbound_flights:
+                min_out = min(f["price"] for f in outbound_flights)
+                min_in = min(f["price"] for f in inbound_flights) if inbound_flights else 0
 
-            outbound_flights = [
-                {"flight_num": f"{config['outbound_num']}", "time": "08:30 - 10:45", "price": out_price_1},
-                {"flight_num": f"{config['outbound_num'][:-1]}3", "time": "14:15 - 16:30", "price": out_price_2}
-            ]
+                schedules_data.append({
+                    "id": f"{route['origin_code']}-{route['dest_code']}",
+                    "route_name": route_name,
+                    "airline": outbound_flights[0]["flight_num"],
+                    "outbound_date": outbound_date,
+                    "inbound_date": inbound_date,
+                    "outbound_flights": outbound_flights,
+                    "inbound_flights": inbound_flights if inbound_flights else outbound_flights,
+                    "total_min_price": min_out + min_in
+                })
 
-            inbound_flights = [
-                {"flight_num": f"{config['inbound_num']}", "time": "11:30 - 13:30", "price": in_price_1},
-                {"flight_num": f"{config['inbound_num'][:-1]}4", "time": "17:30 - 19:30", "price": in_price_2}
-            ]
+        browser.close()
 
-            min_outbound = min(f["price"] for f in outbound_flights)
-            min_inbound = min(f["price"] for f in inbound_flights)
-
-            schedules_data.append({
-                "id": f"{r['origin']}-{r['dest']}-{airline}",
-                "route_name": route_display_name,
-                "airline": airline,
-                "outbound_date": outbound_date_str,
-                "inbound_date": inbound_date_str,
-                "outbound_flights": outbound_flights,
-                "inbound_flights": inbound_flights,
-                "total_min_price": min_outbound + min_inbound
-            })
-
-    # 現在日時（JST）
-    now_utc = datetime.datetime.now(datetime.timezone.utc)
-    jst_now = now_utc + datetime.timedelta(hours=9)
+    # JST時刻の記録
+    jst_now = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=9)
     updated_at_str = jst_now.strftime("%Y年%m月%d日 %H:%M JST")
 
     output_data = {
@@ -85,7 +111,7 @@ def generate_flight_data():
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(output_data, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ 全路線のデータ更新が完了しました！(最終更新: {updated_at_str})")
+    print(f"✅ 実データの更新完了: {updated_at_str}")
 
 if __name__ == "__main__":
-    generate_flight_data()
+    main()
