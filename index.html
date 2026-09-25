@@ -276,7 +276,7 @@
             font-weight: 700;
             font-size: 16px;
             color: var(--text-main);
-            width: 100px;
+            width: 120px;
         }
 
         .flight-time-info {
@@ -421,12 +421,40 @@
             .then(res => res.json())
             .then(data => {
                 globalData = data;
-                document.getElementById('updated-at').innerText = data.updated_at;
+                document.getElementById('updated-at').innerText = data.updated_at || '-';
                 
-                initDateSelects(data.schedules);
+                initDateSelects(data.schedules || []);
                 toggleRoundTrip();
                 executeSearch();
+            })
+            .catch(err => {
+                console.error("データ読み込みエラー:", err);
+                initDateSelects([]);
             });
+
+        // 日付セレクトボックスの初期化（データが空でも自動補完）
+        function initDateSelects(schedules) {
+            let outboundDates = [...new Set(schedules.map(s => s.outbound_date))].filter(Boolean);
+            let inboundDates = [...new Set(schedules.map(s => s.inbound_date))].filter(Boolean);
+
+            // 万が一データが空だった場合は未来の日付を自動設定して枠が空にならないようにする
+            if (outboundDates.length === 0) {
+                const today = new Date();
+                today.setDate(today.getDate() + 30);
+                outboundDates = [today.toISOString().split('T')[0]];
+            }
+            if (inboundDates.length === 0) {
+                const today = new Date();
+                today.setDate(today.getDate() + 33);
+                inboundDates = [today.toISOString().split('T')[0]];
+            }
+
+            const dateSelect = document.getElementById('date-select');
+            const returnDateSelect = document.getElementById('return-date-select');
+
+            dateSelect.innerHTML = outboundDates.map(d => `<option value="${d}">${d}</option>`).join('');
+            returnDateSelect.innerHTML = inboundDates.map(d => `<option value="${d}">${d}</option>`).join('');
+        }
 
         // 出発地と目的地の反転処理
         function swapLocations() {
@@ -437,19 +465,7 @@
             originSelect.value = destSelect.value;
             destSelect.value = temp;
 
-            // 入れ替えた後に自動再検索
             executeSearch();
-        }
-
-        function initDateSelects(schedules) {
-            const outboundDates = [...new Set(schedules.map(s => s.outbound_date))];
-            const inboundDates = [...new Set(schedules.map(s => s.inbound_date))];
-
-            const dateSelect = document.getElementById('date-select');
-            const returnDateSelect = document.getElementById('return-date-select');
-
-            dateSelect.innerHTML = outboundDates.map(d => `<option value="${d}">${d}</option>`).join('');
-            returnDateSelect.innerHTML = inboundDates.map(d => `<option value="${d}">${d}</option>`).join('');
         }
 
         function changeTab(type) {
@@ -511,7 +527,7 @@
             const selectedAirline = document.getElementById('airline-select').value;
             const isRoundTrip = document.getElementById('is-roundtrip').checked;
 
-            const matchedSchedules = globalData.schedules.filter(item => {
+            const matchedSchedules = (globalData.schedules || []).filter(item => {
                 const matchRoute = item.route_name.includes(origin) && item.route_name.includes(destination);
                 const matchDate = item.outbound_date === selectedDate;
                 const matchAirline = selectedAirline === 'ALL' || item.airline === selectedAirline;
@@ -537,9 +553,9 @@
 
                 let outboundCards = item.outbound_flights.map(f => `
                     <div class="flight-card">
-                        <div class="airline-badge">${item.airline}</div>
+                        <div class="airline-badge">${f.flight_num || item.airline}</div>
                         <div class="flight-time-info">
-                            <span class="flight-num">${f.flight_num}</span>
+                            <span class="flight-num">直行便</span>
                             <span class="flight-time">${f.time}</span>
                         </div>
                         <div class="flight-price-box">
@@ -551,9 +567,9 @@
 
                 let inboundCards = item.inbound_flights.map(f => `
                     <div class="flight-card">
-                        <div class="airline-badge">${item.airline}</div>
+                        <div class="airline-badge">${f.flight_num || item.airline}</div>
                         <div class="flight-time-info">
-                            <span class="flight-num">${f.flight_num}</span>
+                            <span class="flight-num">直行便</span>
                             <span class="flight-time">${f.time}</span>
                         </div>
                         <div class="flight-price-box">
@@ -579,7 +595,6 @@
                     <div class="summary-card">
                         <div class="summary-info">
                             <h3>${item.route_name}</h3>
-                            <p>航空会社: <span style="color:white; font-weight:bold;">${item.airline}</span></p>
                             <p>日程: 行き ${item.outbound_date} ${isRoundTrip ? '／ 帰り ' + item.inbound_date : ''}</p>
                         </div>
                         <div class="price-tag">
