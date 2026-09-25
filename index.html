@@ -28,7 +28,6 @@
             padding-bottom: 50px;
         }
 
-        /* ヒーローヘッダーエリア */
         .hero {
             background: linear-gradient(180deg, #051329 0%, #0a2540 100%);
             padding: 40px 20px 30px;
@@ -36,7 +35,6 @@
             margin: 0 auto;
         }
 
-        /* タブ切り替えボタン */
         .nav-tabs {
             display: flex;
             gap: 12px;
@@ -62,7 +60,6 @@
             border-color: var(--accent-blue);
         }
 
-        /* キャッチコピー */
         .title {
             font-size: 28px;
             font-weight: 800;
@@ -70,43 +67,43 @@
             letter-spacing: -0.5px;
         }
 
-        /* 検索フォームコンテナ */
+        /* 項目ごとに分割された検索バー */
         .search-box-wrapper {
             background: #ffffff;
             border-radius: 12px;
             padding: 16px;
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) auto;
             gap: 12px;
-            align-items: center;
+            align-items: end;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
             color: #333;
         }
 
         .search-field {
-            flex: 1;
-            min-width: 280px;
             display: flex;
             flex-direction: column;
         }
 
         .search-field label {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             color: #666;
             margin-bottom: 4px;
+            text-transform: uppercase;
         }
 
         .search-field select {
             border: 1px solid #ccc;
             border-radius: 6px;
             padding: 10px 12px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             color: #1a202c;
             background-color: #f8fafc;
             outline: none;
             cursor: pointer;
+            width: 100%;
         }
 
         .search-btn {
@@ -114,20 +111,18 @@
             color: white;
             border: none;
             border-radius: 8px;
-            padding: 12px 32px;
+            padding: 0 28px;
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
             transition: background 0.2s;
-            height: 44px;
-            margin-top: auto;
+            height: 42px;
         }
 
         .search-btn:hover {
             background: var(--accent-hover);
         }
 
-        /* サブオプション */
         .sub-options {
             display: flex;
             gap: 20px;
@@ -143,7 +138,6 @@
             cursor: pointer;
         }
 
-        /* メインコンテンツエリア */
         .container {
             max-width: 1100px;
             margin: 30px auto 0;
@@ -195,7 +189,6 @@
             color: #ff4d4f;
         }
 
-        /* 検索結果カード一覧 */
         .flight-section-title {
             font-size: 16px;
             color: var(--text-sub);
@@ -267,6 +260,16 @@
             cursor: pointer;
         }
 
+        .no-data-msg {
+            background: var(--card-bg);
+            border: 1px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 15px;
+        }
+
         .footer-updated {
             text-align: right;
             font-size: 12px;
@@ -277,7 +280,6 @@
 </head>
 <body>
 
-    <!-- ヒーローヘッダーエリア -->
     <div class="hero">
         <div class="nav-tabs">
             <button class="tab-btn active">✈️ 航空券</button>
@@ -287,13 +289,38 @@
 
         <h1 class="title">無数にある格安航空券をすばやく一括検索。</h1>
 
-        <!-- 検索バー風プルダウンフォーム -->
+        <!-- 区分された検索バー -->
         <div class="search-box-wrapper">
             <div class="search-field">
-                <label>🔍 検索条件を選択（路線・日程・航空会社）</label>
-                <select id="schedule-select" onchange="changeSchedule()"></select>
+                <label>出発地</label>
+                <select id="origin-select">
+                    <option value="大阪 (OSA)">大阪 (OSA)</option>
+                    <option value="東京 (TYO)">東京 (TYO)</option>
+                </select>
             </div>
-            <button class="search-btn" onclick="changeSchedule()">検索</button>
+            <div class="search-field">
+                <label>目的地</label>
+                <select id="destination-select">
+                    <option value="沖縄 (OKA)">沖縄 (OKA)</option>
+                    <option value="福岡 (FUK)">福岡 (FUK)</option>
+                </select>
+            </div>
+            <div class="search-field">
+                <label>出発日</label>
+                <select id="date-select">
+                    <option value="2027-02-05">2027年2月5日</option>
+                    <option value="2027-03-01">2027年3月1日</option>
+                </select>
+            </div>
+            <div class="search-field">
+                <label>航空会社</label>
+                <select id="airline-select">
+                    <option value="ALL">すべて</option>
+                    <option value="ANA">ANA</option>
+                    <option value="JAL">JAL</option>
+                </select>
+            </div>
+            <button class="search-btn" onclick="executeSearch()">検索</button>
         </div>
 
         <div class="sub-options">
@@ -303,32 +330,12 @@
         </div>
     </div>
 
-    <!-- 検索結果コンテンツ -->
     <div class="container">
         <div class="section-header">
             <span>検索結果</span>
         </div>
 
-        <!-- 選択中のサマリーカード -->
-        <div class="summary-card">
-            <div class="summary-info">
-                <h3 id="route">-</h3>
-                <p>航空会社: <span id="airline" style="color:white; font-weight:bold;">-</span></p>
-                <p>日程: 行き <span id="outbound-date">-</span> ／ 帰り <span id="inbound-date">-</span></p>
-            </div>
-            <div class="price-tag">
-                <p style="font-size:12px; color:var(--text-sub);">往復最安値</p>
-                <span id="total-min-price">-</span>
-            </div>
-        </div>
-
-        <!-- 行き便 -->
-        <div class="flight-section-title">✈️ 行き（往路）便一覧</div>
-        <div id="outbound-list"></div>
-
-        <!-- 帰り便 -->
-        <div class="flight-section-title">✈️ 帰り（復路）便一覧</div>
-        <div id="inbound-list"></div>
+        <div id="results-area"></div>
 
         <div class="footer-updated">データ最終更新: <span id="updated-at">-</span></div>
     </div>
@@ -336,51 +343,50 @@
     <script>
         let globalData = null;
 
-        // data.jsonの読み込み
         fetch('data.json')
             .then(res => res.json())
             .then(data => {
                 globalData = data;
                 document.getElementById('updated-at').innerText = data.updated_at;
-
-                const select = document.getElementById('schedule-select');
-                select.innerHTML = '';
-
-                // プルダウンに選択肢を追加
-                data.schedules.forEach((item, index) => {
-                    const opt = document.createElement('option');
-                    opt.value = index;
-                    opt.innerText = `[${item.airline}] ${item.route_name} (${item.outbound_date}発)`;
-                    select.appendChild(opt);
-                });
-
-                // 初期表示（1件目）
-                updateDisplay(0);
+                executeSearch(); // 初期表示
             });
 
-        // 切り替え処理
-        function changeSchedule() {
-            const index = document.getElementById('schedule-select').value;
-            updateDisplay(index);
-        }
+        function executeSearch() {
+            if (!globalData) return;
 
-        // 画面描画ロジック
-        function updateDisplay(index) {
-            const item = globalData.schedules[index];
-            document.getElementById('route').innerText = item.route_name;
-            document.getElementById('airline').innerText = item.airline;
-            document.getElementById('outbound-date').innerText = item.outbound_date;
-            document.getElementById('inbound-date').innerText = item.inbound_date;
-            document.getElementById('total-min-price').innerText = item.total_min_price.toLocaleString() + ' 円';
+            const origin = document.getElementById('origin-select').value;
+            const destination = document.getElementById('destination-select').value;
+            const selectedDate = document.getElementById('date-select').value;
+            const selectedAirline = document.getElementById('airline-select').value;
 
-            // リスト描画
-            const renderList = (targetId, flights) => {
-                const container = document.getElementById(targetId);
-                container.innerHTML = '';
-                flights.forEach(f => {
-                    const card = document.createElement('div');
-                    card.className = 'flight-card';
-                    card.innerHTML = `
+            // 条件に合うスケジュールを抽出
+            const matchedSchedules = globalData.schedules.filter(item => {
+                const matchRoute = item.route_name.includes(origin) && item.route_name.includes(destination);
+                const matchDate = item.outbound_date === selectedDate;
+                const matchAirline = selectedAirline === 'ALL' || item.airline === selectedAirline;
+                return matchRoute && matchDate && matchAirline;
+            });
+
+            const resultsArea = document.getElementById('results-area');
+            resultsArea.innerHTML = '';
+
+            if (matchedSchedules.length === 0) {
+                resultsArea.innerHTML = `
+                    <div class="no-data-msg">
+                        ⚠️ 指定された条件（${origin} ➔ ${destination} / ${selectedDate}）に該当する航空券が見つかりませんでした。<br>
+                        条件を変更して再度検索してください。
+                    </div>
+                `;
+                return;
+            }
+
+            // 該当するすべてのデータを描画
+            matchedSchedules.forEach(item => {
+                const itemContainer = document.createElement('div');
+                itemContainer.style.marginBottom = '40px';
+
+                let outboundCards = item.outbound_flights.map(f => `
+                    <div class="flight-card">
                         <div class="airline-badge">${item.airline}</div>
                         <div class="flight-time-info">
                             <span class="flight-num">${f.flight_num}</span>
@@ -390,13 +396,45 @@
                             <span class="flight-price">${f.price.toLocaleString()} 円</span>
                             <button class="select-btn">選択</button>
                         </div>
-                    `;
-                    container.appendChild(card);
-                });
-            };
+                    </div>
+                `).join('');
 
-            renderList('outbound-list', item.outbound_flights);
-            renderList('inbound-list', item.inbound_flights);
+                let inboundCards = item.inbound_flights.map(f => `
+                    <div class="flight-card">
+                        <div class="airline-badge">${item.airline}</div>
+                        <div class="flight-time-info">
+                            <span class="flight-num">${f.flight_num}</span>
+                            <span class="flight-time">${f.time}</span>
+                        </div>
+                        <div class="flight-price-box">
+                            <span class="flight-price">${f.price.toLocaleString()} 円</span>
+                            <button class="select-btn">選択</button>
+                        </div>
+                    </div>
+                `).join('');
+
+                itemContainer.innerHTML = `
+                    <div class="summary-card">
+                        <div class="summary-info">
+                            <h3>${item.route_name}</h3>
+                            <p>航空会社: <span style="color:white; font-weight:bold;">${item.airline}</span></p>
+                            <p>日程: 行き ${item.outbound_date} ／ 帰り ${item.inbound_date}</p>
+                        </div>
+                        <div class="price-tag">
+                            <p style="font-size:12px; color:var(--text-sub);">往復最安値</p>
+                            <span>${item.total_min_price.toLocaleString()} 円</span>
+                        </div>
+                    </div>
+
+                    <div class="flight-section-title">✈️ 行き（往路）便一覧</div>
+                    ${outboundCards}
+
+                    <div class="flight-section-title">✈️ 帰り（復路）便一覧</div>
+                    ${inboundCards}
+                `;
+
+                resultsArea.appendChild(itemContainer);
+            });
         }
     </script>
 </body>
