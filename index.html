@@ -67,20 +67,19 @@
             letter-spacing: -0.5px;
         }
 
-        /* 横一列レイアウトに対応した検索バー */
+        /* 検索バー */
         .search-box-wrapper {
             background: #ffffff;
             border-radius: 12px;
             padding: 16px;
             display: grid;
-            grid-template-columns: repeat(4, 1fr) auto; /* 4つの入力欄 + ボタンを横一列に配置 */
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) auto;
             gap: 10px;
             align-items: end;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
             color: #333;
         }
 
-        /* 画面幅が狭い場合（スマホ等）は折りたたむレスポンシブ対応 */
         @media (max-width: 850px) {
             .search-box-wrapper {
                 grid-template-columns: 1fr;
@@ -90,7 +89,7 @@
         .search-field {
             display: flex;
             flex-direction: column;
-            min-width: 0; /* 文字あふれ防止 */
+            min-width: 0;
         }
 
         .search-field label {
@@ -147,6 +146,7 @@
             align-items: center;
             gap: 6px;
             cursor: pointer;
+            user-select: none;
         }
 
         .container {
@@ -300,7 +300,7 @@
 
         <h1 class="title">無数にある格安航空券をすばやく一括検索。</h1>
 
-        <!-- 横一列になった検索バー -->
+        <!-- 検索バー -->
         <div class="search-box-wrapper">
             <div class="search-field">
                 <label>出発地</label>
@@ -317,10 +317,17 @@
                 </select>
             </div>
             <div class="search-field">
-                <label>出発日</label>
+                <label>往路日（行き）</label>
                 <select id="date-select">
                     <option value="2027-02-05">2027年2月5日</option>
                     <option value="2027-03-01">2027年3月1日</option>
+                </select>
+            </div>
+            <div class="search-field" id="return-date-field">
+                <label>復路日（帰り）</label>
+                <select id="return-date-select">
+                    <option value="2027-02-08">2027年2月8日</option>
+                    <option value="2027-03-04">2027年3月4日</option>
                 </select>
             </div>
             <div class="search-field">
@@ -336,7 +343,8 @@
 
         <div class="sub-options">
             <label><input type="checkbox" checked disabled> 直行便のみ</label>
-            <label><input type="checkbox" checked disabled> 往復</label>
+            <!-- 往復チェックボックス（切り替え可能） -->
+            <label><input type="checkbox" id="is-roundtrip" checked onchange="toggleRoundTrip()"> 往復</label>
             <label><input type="checkbox" disabled> エコノミー</label>
         </div>
     </div>
@@ -359,8 +367,21 @@
             .then(data => {
                 globalData = data;
                 document.getElementById('updated-at').innerText = data.updated_at;
-                executeSearch(); // 初期表示
+                toggleRoundTrip(); // 往復切替状態の初期反映
+                executeSearch();    // 初期表示
             });
+
+        // 往復チェックボックスの切り替え処理
+        function toggleRoundTrip() {
+            const isRoundTrip = document.getElementById('is-roundtrip').checked;
+            const returnDateField = document.getElementById('return-date-field');
+
+            if (isRoundTrip) {
+                returnDateField.style.display = 'flex';
+            } else {
+                returnDateField.style.display = 'none';
+            }
+        }
 
         function executeSearch() {
             if (!globalData) return;
@@ -369,6 +390,7 @@
             const destination = document.getElementById('destination-select').value;
             const selectedDate = document.getElementById('date-select').value;
             const selectedAirline = document.getElementById('airline-select').value;
+            const isRoundTrip = document.getElementById('is-roundtrip').checked;
 
             // 条件に合うスケジュールを抽出
             const matchedSchedules = globalData.schedules.filter(item => {
@@ -395,6 +417,7 @@
                 const itemContainer = document.createElement('div');
                 itemContainer.style.marginBottom = '40px';
 
+                // 行き（往路）カードの生成
                 let outboundCards = item.outbound_flights.map(f => `
                     <div class="flight-card">
                         <div class="airline-badge">${item.airline}</div>
@@ -409,6 +432,7 @@
                     </div>
                 `).join('');
 
+                // 帰り（復路）カードの生成
                 let inboundCards = item.inbound_flights.map(f => `
                     <div class="flight-card">
                         <div class="airline-badge">${item.airline}</div>
@@ -423,24 +447,37 @@
                     </div>
                 `).join('');
 
+                // 最安値表示（片道か往復かで計算表示を変更）
+                const minOutboundPrice = Math.min(...item.outbound_flights.map(f => f.price));
+                const priceLabel = isRoundTrip ? '往復最安値' : '片道最安値';
+                const displayPrice = isRoundTrip ? item.total_min_price : minOutboundPrice;
+
+                // 往復が有効な場合のみ復路エリアを表示
+                let returnSection = '';
+                if (isRoundTrip) {
+                    returnSection = `
+                        <div class="flight-section-title">✈️ 帰り（復路）便一覧</div>
+                        ${inboundCards}
+                    `;
+                }
+
                 itemContainer.innerHTML = `
                     <div class="summary-card">
                         <div class="summary-info">
                             <h3>${item.route_name}</h3>
                             <p>航空会社: <span style="color:white; font-weight:bold;">${item.airline}</span></p>
-                            <p>日程: 行き ${item.outbound_date} ／ 帰り ${item.inbound_date}</p>
+                            <p>日程: 行き ${item.outbound_date} ${isRoundTrip ? '／ 帰り ' + item.inbound_date : ''}</p>
                         </div>
                         <div class="price-tag">
-                            <p style="font-size:12px; color:var(--text-sub);">往復最安値</p>
-                            <span>${item.total_min_price.toLocaleString()} 円</span>
+                            <p style="font-size:12px; color:var(--text-sub);">${priceLabel}</p>
+                            <span>${displayPrice.toLocaleString()} 円</span>
                         </div>
                     </div>
 
                     <div class="flight-section-title">✈️ 行き（往路）便一覧</div>
                     ${outboundCards}
 
-                    <div class="flight-section-title">✈️ 帰り（復路）便一覧</div>
-                    ${inboundCards}
+                    ${returnSection}
                 `;
 
                 resultsArea.appendChild(itemContainer);
