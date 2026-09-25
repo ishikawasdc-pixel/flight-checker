@@ -5,13 +5,20 @@ import random
 
 def generate_flight_data():
     """
-    追加ライブラリ不要で動作する Google フライトデータ自動更新スクリプト
-    日毎の変動（リアルタイム風の価格推移）を取り入れつつ、確実に data.json を作成・更新します。
+    主要路線（東京、大阪、沖縄、福岡、札幌）に対応したデータ生成スクリプト
     """
-    # 検索対象路線
+    # 検索対象路線の拡充
     routes = [
+        # 大阪発
         {"origin": "ITM", "origin_name": "大阪 (OSA)", "dest": "OKA", "dest_name": "沖縄 (OKA)"},
         {"origin": "ITM", "origin_name": "大阪 (OSA)", "dest": "FUK", "dest_name": "福岡 (FUK)"},
+        {"origin": "ITM", "origin_name": "大阪 (OSA)", "dest": "TYO", "dest_name": "東京 (TYO)"},
+        {"origin": "ITM", "origin_name": "大阪 (OSA)", "dest": "CTS", "dest_name": "札幌 (CTS)"},
+        # 東京発
+        {"origin": "TYO", "origin_name": "東京 (TYO)", "dest": "OKA", "dest_name": "沖縄 (OKA)"},
+        {"origin": "TYO", "origin_name": "東京 (TYO)", "dest": "FUK", "dest_name": "福岡 (FUK)"},
+        {"origin": "TYO", "origin_name": "東京 (TYO)", "dest": "CTS", "dest_name": "札幌 (CTS)"},
+        {"origin": "TYO", "origin_name": "東京 (TYO)", "dest": "OSA", "dest_name": "大阪 (OSA)"},
     ]
 
     # 日付設定 (実行日の30日後〜33日後)
@@ -26,7 +33,6 @@ def generate_flight_data():
     for r in routes:
         route_display_name = f"{r['origin_name']} ➔ {r['dest_name']}"
         
-        # 航空会社ごとの基本データ設定
         airlines_config = [
             {"code": "ANA", "outbound_num": "NH761", "inbound_num": "NH762", "base_price": 15000},
             {"code": "JAL", "outbound_num": "JL2081", "inbound_num": "JL2082", "base_price": 14500}
@@ -35,8 +41,7 @@ def generate_flight_data():
         for config in airlines_config:
             airline = config["code"]
             
-            # 日々の微小な価格変動をシミュレート (±1000円範囲)
-            price_fluctuation = random.choice([-800, -500, 0, 500, 1200])
+            price_fluctuation = random.choice([-1000, -500, 0, 500, 1500])
             out_price_1 = config["base_price"] + price_fluctuation
             out_price_2 = config["base_price"] + price_fluctuation + 1500
 
@@ -67,7 +72,7 @@ def generate_flight_data():
                 "total_min_price": min_outbound + min_inbound
             })
 
-    # 現在日時（日本時間 JST）の作成
+    # 現在日時（JST）
     now_utc = datetime.datetime.now(datetime.timezone.utc)
     jst_now = now_utc + datetime.timedelta(hours=9)
     updated_at_str = jst_now.strftime("%Y年%m月%d日 %H:%M JST")
@@ -77,11 +82,10 @@ def generate_flight_data():
         "schedules": schedules_data
     }
 
-    # data.json へ保存
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(output_data, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ data.json の更新が完了しました！(最終更新: {updated_at_str})")
+    print(f"✅ 全路線のデータ更新が完了しました！(最終更新: {updated_at_str})")
 
 if __name__ == "__main__":
     generate_flight_data()
