@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>格安航空券一括検索</title>
+    <title>格安移動手段一括検索</title>
     <style>
         :root {
             --bg-dark: #07192f;
@@ -53,6 +53,11 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .tab-btn.active {
@@ -67,7 +72,7 @@
             letter-spacing: -0.5px;
         }
 
-        /* 確実に横一列に並べるCSS設定 */
+        /* 横一列固定の検索バー */
         .search-box-wrapper {
             background: #ffffff;
             border-radius: 12px;
@@ -81,7 +86,6 @@
             width: 100%;
         }
 
-        /* 画面幅が狭い場合（スマホ等）のみ折りたたむ */
         @media (max-width: 768px) {
             .search-box-wrapper {
                 flex-direction: column;
@@ -92,7 +96,7 @@
         .search-field {
             display: flex;
             flex-direction: column;
-            flex: 1; /* 各フィールドが均等に幅を分かち合う */
+            flex: 1;
             min-width: 0;
         }
 
@@ -280,10 +284,11 @@
             background: var(--card-bg);
             border: 1px dashed var(--border-color);
             border-radius: 12px;
-            padding: 40px;
+            padding: 50px 20px;
             text-align: center;
             color: var(--text-sub);
             font-size: 15px;
+            line-height: 1.8;
         }
 
         .footer-updated {
@@ -296,17 +301,17 @@
 </head>
 <body>
 
-    <!-- タブボタン部分 -->
-<div class="nav-tabs">
-    <button class="tab-btn active" id="tab-flight" onclick="changeTab('flight')">✈️ 航空券</button>
-    <button class="tab-btn" id="tab-train" onclick="changeTab('train')">🚆 鉄道路線</button>
-    <button class="tab-btn" id="tab-bus" onclick="changeTab('bus')">🚌 バス路線</button>
-</div>
+    <div class="hero">
+        <div class="nav-tabs">
+            <button class="tab-btn active" id="tab-flight" onclick="changeTab('flight')">✈️ 航空券</button>
+            <button class="tab-btn" id="tab-train" onclick="changeTab('train')">🚆 鉄道路線</button>
+            <button class="tab-btn" id="tab-bus" onclick="changeTab('bus')">🚌 バス路線</button>
+        </div>
 
-        <h1 class="title">無数にある格安航空券をすばやく一括検索。</h1>
+        <h1 class="title" id="page-title">無数にある格安航空券をすばやく一括検索。</h1>
 
-        <!-- 横一列固定の検索バー -->
-        <div class="search-box-wrapper">
+        <!-- 検索バー -->
+        <div class="search-box-wrapper" id="search-box">
             <div class="search-field">
                 <label>出発地</label>
                 <select id="origin-select">
@@ -346,7 +351,7 @@
             <button class="search-btn" onclick="executeSearch()">検索</button>
         </div>
 
-        <div class="sub-options">
+        <div class="sub-options" id="sub-options">
             <label><input type="checkbox" checked disabled> 直行便のみ</label>
             <label><input type="checkbox" id="is-roundtrip" checked onchange="toggleRoundTrip()"> 往復</label>
             <label><input type="checkbox" disabled> エコノミー</label>
@@ -355,7 +360,7 @@
 
     <div class="container">
         <div class="section-header">
-            <span>検索結果</span>
+            <span id="results-title">検索結果</span>
         </div>
 
         <div id="results-area"></div>
@@ -365,6 +370,7 @@
 
     <script>
         let globalData = null;
+        let currentTab = 'flight';
 
         fetch('data.json')
             .then(res => res.json())
@@ -374,6 +380,47 @@
                 toggleRoundTrip();
                 executeSearch();
             });
+
+        // タブ切り替え処理
+        function changeTab(type) {
+            currentTab = type;
+            
+            // ボタンの見た目切替
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`tab-${type}`).classList.add('active');
+
+            const pageTitle = document.getElementById('page-title');
+            const searchBox = document.getElementById('search-box');
+            const subOptions = document.getElementById('sub-options');
+            const resultsArea = document.getElementById('results-area');
+
+            if (type === 'flight') {
+                pageTitle.innerText = "無数にある格安航空券をすばやく一括検索。";
+                searchBox.style.display = 'flex';
+                subOptions.style.display = 'flex';
+                executeSearch();
+            } else if (type === 'train') {
+                pageTitle.innerText = "全国の新幹線・特急列車のルートと料金を一括比較。";
+                searchBox.style.display = 'none';
+                subOptions.style.display = 'none';
+                resultsArea.innerHTML = `
+                    <div class="no-data-msg">
+                        🚆 <strong>鉄道路線検索機能は現在準備中です</strong><br>
+                        新幹線やJR各線の時刻表・料金比較に対応予定です。
+                    </div>
+                `;
+            } else if (type === 'bus') {
+                pageTitle.innerText = "全国の高速バス・夜行バスの最安値を一括検索。";
+                searchBox.style.display = 'none';
+                subOptions.style.display = 'none';
+                resultsArea.innerHTML = `
+                    <div class="no-data-msg">
+                        🚌 <strong>バス路線検索機能は現在準備中です</strong><br>
+                        全国の高速バス・夜行バスルートに対応予定です。
+                    </div>
+                `;
+            }
+        }
 
         function toggleRoundTrip() {
             const isRoundTrip = document.getElementById('is-roundtrip').checked;
@@ -387,7 +434,7 @@
         }
 
         function executeSearch() {
-            if (!globalData) return;
+            if (!globalData || currentTab !== 'flight') return;
 
             const origin = document.getElementById('origin-select').value;
             const destination = document.getElementById('destination-select').value;
