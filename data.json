@@ -1,62 +1,101 @@
 {
-    "route": "OSA (大阪すべて) ⇆ OKA (沖縄/那覇)",
-    "outbound_date": "2027-02-05",
-    "inbound_date": "2027-02-08",
-    "total_min_price": 29500,
-    "outbound_flights": [
+    "updated_at": "2026-09-25 01:59:25",
+    "schedules": [
         {
-            "flight_num": "ANA761",
-            "time": "08:00 発 -> 10:15 着",
-            "price": 16000
+            "id": "osa_oka_20270205_ana",
+            "route_name": "大阪 (OSA) ⇆ 沖縄 (OKA)",
+            "outbound_date": "2027-02-05",
+            "inbound_date": "2027-02-08",
+            "airline": "ANA",
+            "total_min_price": 29500,
+            "outbound_flights": [
+                {
+                    "flight_num": "ANA761",
+                    "time": "08:00 発 -> 10:15 着",
+                    "price": 15000
+                },
+                {
+                    "flight_num": "ANA763",
+                    "time": "11:15 発 -> 13:30 着",
+                    "price": 14500
+                }
+            ],
+            "inbound_flights": [
+                {
+                    "flight_num": "ANA762",
+                    "time": "08:00 発 -> 10:00 着",
+                    "price": 16000
+                },
+                {
+                    "flight_num": "ANA764",
+                    "time": "11:10 発 -> 13:05 着",
+                    "price": 15000
+                }
+            ]
         },
         {
-            "flight_num": "ANA763",
-            "time": "11:15 発 -> 13:30 着",
-            "price": 14500
+            "id": "osa_oka_20270205_jal",
+            "route_name": "大阪 (OSA) ⇆ 沖縄 (OKA)",
+            "outbound_date": "2027-02-05",
+            "inbound_date": "2027-02-08",
+            "airline": "JAL",
+            "total_min_price": 31000,
+            "outbound_flights": [
+                {
+                    "flight_num": "JAL2081",
+                    "time": "08:50 発 -> 11:05 着",
+                    "price": 15500
+                },
+                {
+                    "flight_num": "JAL2083",
+                    "time": "14:55 発 -> 17:10 着",
+                    "price": 16000
+                }
+            ],
+            "inbound_flights": [
+                {
+                    "flight_num": "JAL2082",
+                    "time": "11:50 発 -> 13:40 着",
+                    "price": 15500
+                },
+                {
+                    "flight_num": "JAL2088",
+                    "time": "18:00 発 -> 19:50 着",
+                    "price": 17000
+                }
+            ]
         },
         {
-            "flight_num": "ANA767",
-            "time": "14:40 発 -> 16:55 着",
-            "price": 18000
-        },
-        {
-            "flight_num": "ANA769",
-            "time": "17:30 発 -> 19:45 着",
-            "price": 20000
-        },
-        {
-            "flight_num": "ANA773",
-            "time": "19:15 発 -> 21:30 着",
-            "price": 22000
+            "id": "tyo_fuk_20270301_ana",
+            "route_name": "東京 (TYO) ⇆ 福岡 (FUK)",
+            "outbound_date": "2027-03-01",
+            "inbound_date": "2027-03-04",
+            "airline": "ANA",
+            "total_min_price": 24000,
+            "outbound_flights": [
+                {
+                    "flight_num": "ANA241",
+                    "time": "07:25 発 -> 09:20 着",
+                    "price": 12000
+                },
+                {
+                    "flight_num": "ANA243",
+                    "time": "08:30 発 -> 10:25 着",
+                    "price": 13500
+                }
+            ],
+            "inbound_flights": [
+                {
+                    "flight_num": "ANA242",
+                    "time": "07:00 発 -> 08:35 着",
+                    "price": 12000
+                },
+                {
+                    "flight_num": "ANA246",
+                    "time": "10:00 発 -> 11:35 着",
+                    "price": 14000
+                }
+            ]
         }
-    ],
-    "inbound_flights": [
-        {
-            "flight_num": "ANA762",
-            "time": "08:00 発 -> 10:00 着",
-            "price": 16000
-        },
-        {
-            "flight_num": "ANA764",
-            "time": "11:10 発 -> 13:05 着",
-            "price": 15000
-        },
-        {
-            "flight_num": "ANA768",
-            "time": "14:20 発 -> 16:15 着",
-            "price": 17500
-        },
-        {
-            "flight_num": "ANA770",
-            "time": "18:00 発 -> 19:55 着",
-            "price": 19000
-        },
-        {
-            "flight_num": "ANA772",
-            "time": "20:30 発 -> 22:25 着",
-            "price": 20000
-        }
-    ],
-    "link": "https://www.ana.co.jp/",
-    "updated_at": "2026-09-25 00:15:41"
+    ]
 }
