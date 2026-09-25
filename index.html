@@ -316,6 +316,9 @@
                 <select id="origin-select">
                     <option value="大阪 (OSA)">大阪 (OSA)</option>
                     <option value="東京 (TYO)">東京 (TYO)</option>
+                    <option value="沖縄 (OKA)">沖縄 (OKA)</option>
+                    <option value="福岡 (FUK)">福岡 (FUK)</option>
+                    <option value="札幌 (CTS)">札幌 (CTS)</option>
                 </select>
             </div>
             <div class="search-field">
@@ -323,6 +326,9 @@
                 <select id="destination-select">
                     <option value="沖縄 (OKA)">沖縄 (OKA)</option>
                     <option value="福岡 (FUK)">福岡 (FUK)</option>
+                    <option value="東京 (TYO)">東京 (TYO)</option>
+                    <option value="大阪 (OSA)">大阪 (OSA)</option>
+                    <option value="札幌 (CTS)">札幌 (CTS)</option>
                 </select>
             </div>
             <div class="search-field">
@@ -371,14 +377,11 @@
                 globalData = data;
                 document.getElementById('updated-at').innerText = data.updated_at;
                 
-                // data.json 内の最新日付を検索バーの選択肢に自動設定
                 initDateSelects(data.schedules);
-
                 toggleRoundTrip();
                 executeSearch();
             });
 
-        // data.json に存在する日付を選択肢（option）として生成する関数
         function initDateSelects(schedules) {
             const outboundDates = [...new Set(schedules.map(s => s.outbound_date))];
             const inboundDates = [...new Set(schedules.map(s => s.inbound_date))];
@@ -390,7 +393,6 @@
             returnDateSelect.innerHTML = inboundDates.map(d => `<option value="${d}">${d}</option>`).join('');
         }
 
-        // タブ切り替え処理
         function changeTab(type) {
             currentTab = type;
             
