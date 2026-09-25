@@ -2,9 +2,7 @@ import json
 from datetime import datetime
 
 def generate_multi_flight_data():
-    # 複数パターン（路線・日付・航空会社）のデータ構造
     database = [
-        # --- パターン1: 大阪 ⇆ 沖縄 (ANA) ---
         {
             "id": "osa_oka_20270205_ana",
             "route_name": "大阪 (OSA) ⇆ 沖縄 (OKA)",
@@ -21,7 +19,6 @@ def generate_multi_flight_data():
                 {"flight_num": "ANA764", "time": "11:10 発 -> 13:05 着", "price": 15000}
             ]
         },
-        # --- パターン2: 大阪 ⇆ 沖縄 (JAL) ---
         {
             "id": "osa_oka_20270205_jal",
             "route_name": "大阪 (OSA) ⇆ 沖縄 (OKA)",
@@ -38,7 +35,6 @@ def generate_multi_flight_data():
                 {"flight_num": "JAL2088", "time": "18:00 発 -> 19:50 着", "price": 17000}
             ]
         },
-        # --- パターン3: 東京 ⇆ 福岡 (ANA) ---
         {
             "id": "tyo_fuk_20270301_ana",
             "route_name": "東京 (TYO) ⇆ 福岡 (FUK)",
