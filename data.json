@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026年09月25日 13:57 JST",
+  "updated_at": "2026年09月25日 14:04 JST",
   "schedules": [
     {
       "id": "ITM-OKA-ANA",
@@ -11,27 +11,27 @@
         {
           "flight_num": "NH761",
           "time": "08:30 - 10:45",
-          "price": 14000
+          "price": 16500
         },
         {
           "flight_num": "NH763",
           "time": "14:15 - 16:30",
-          "price": 15500
+          "price": 18000
         }
       ],
       "inbound_flights": [
         {
           "flight_num": "NH762",
           "time": "11:30 - 13:30",
-          "price": 13700
+          "price": 16200
         },
         {
           "flight_num": "NH764",
           "time": "17:30 - 19:30",
-          "price": 14800
+          "price": 17300
         }
       ],
-      "total_min_price": 27700
+      "total_min_price": 32700
     },
     {
       "id": "ITM-OKA-JAL",
@@ -75,95 +75,31 @@
         {
           "flight_num": "NH761",
           "time": "08:30 - 10:45",
-          "price": 15500
+          "price": 14500
         },
         {
           "flight_num": "NH763",
           "time": "14:15 - 16:30",
-          "price": 17000
+          "price": 16000
         }
       ],
       "inbound_flights": [
         {
           "flight_num": "NH762",
           "time": "11:30 - 13:30",
-          "price": 15200
+          "price": 14200
         },
         {
           "flight_num": "NH764",
           "time": "17:30 - 19:30",
-          "price": 16300
+          "price": 15300
         }
       ],
-      "total_min_price": 30700
+      "total_min_price": 28700
     },
     {
       "id": "ITM-FUK-JAL",
       "route_name": "大阪 (OSA) ➔ 福岡 (FUK)",
-      "airline": "JAL",
-      "outbound_date": "2026-10-25",
-      "inbound_date": "2026-10-28",
-      "outbound_flights": [
-        {
-          "flight_num": "JL2081",
-          "time": "08:30 - 10:45",
-          "price": 16000
-        },
-        {
-          "flight_num": "JL2083",
-          "time": "14:15 - 16:30",
-          "price": 17500
-        }
-      ],
-      "inbound_flights": [
-        {
-          "flight_num": "JL2082",
-          "time": "11:30 - 13:30",
-          "price": 15700
-        },
-        {
-          "flight_num": "JL2084",
-          "time": "17:30 - 19:30",
-          "price": 16800
-        }
-      ],
-      "total_min_price": 31700
-    },
-    {
-      "id": "ITM-TYO-ANA",
-      "route_name": "大阪 (OSA) ➔ 東京 (TYO)",
-      "airline": "ANA",
-      "outbound_date": "2026-10-25",
-      "inbound_date": "2026-10-28",
-      "outbound_flights": [
-        {
-          "flight_num": "NH761",
-          "time": "08:30 - 10:45",
-          "price": 16500
-        },
-        {
-          "flight_num": "NH763",
-          "time": "14:15 - 16:30",
-          "price": 18000
-        }
-      ],
-      "inbound_flights": [
-        {
-          "flight_num": "NH762",
-          "time": "11:30 - 13:30",
-          "price": 16200
-        },
-        {
-          "flight_num": "NH764",
-          "time": "17:30 - 19:30",
-          "price": 17300
-        }
-      ],
-      "total_min_price": 32700
-    },
-    {
-      "id": "ITM-TYO-JAL",
-      "route_name": "大阪 (OSA) ➔ 東京 (TYO)",
       "airline": "JAL",
       "outbound_date": "2026-10-25",
       "inbound_date": "2026-10-28",
@@ -194,8 +130,8 @@
       "total_min_price": 26700
     },
     {
-      "id": "ITM-CTS-ANA",
-      "route_name": "大阪 (OSA) ➔ 札幌 (CTS)",
+      "id": "ITM-TYO-ANA",
+      "route_name": "大阪 (OSA) ➔ 東京 (TYO)",
       "airline": "ANA",
       "outbound_date": "2026-10-25",
       "inbound_date": "2026-10-28",
@@ -226,6 +162,70 @@
       "total_min_price": 27700
     },
     {
+      "id": "ITM-TYO-JAL",
+      "route_name": "大阪 (OSA) ➔ 東京 (TYO)",
+      "airline": "JAL",
+      "outbound_date": "2026-10-25",
+      "inbound_date": "2026-10-28",
+      "outbound_flights": [
+        {
+          "flight_num": "JL2081",
+          "time": "08:30 - 10:45",
+          "price": 16000
+        },
+        {
+          "flight_num": "JL2083",
+          "time": "14:15 - 16:30",
+          "price": 17500
+        }
+      ],
+      "inbound_flights": [
+        {
+          "flight_num": "JL2082",
+          "time": "11:30 - 13:30",
+          "price": 15700
+        },
+        {
+          "flight_num": "JL2084",
+          "time": "17:30 - 19:30",
+          "price": 16800
+        }
+      ],
+      "total_min_price": 31700
+    },
+    {
+      "id": "ITM-CTS-ANA",
+      "route_name": "大阪 (OSA) ➔ 札幌 (CTS)",
+      "airline": "ANA",
+      "outbound_date": "2026-10-25",
+      "inbound_date": "2026-10-28",
+      "outbound_flights": [
+        {
+          "flight_num": "NH761",
+          "time": "08:30 - 10:45",
+          "price": 16500
+        },
+        {
+          "flight_num": "NH763",
+          "time": "14:15 - 16:30",
+          "price": 18000
+        }
+      ],
+      "inbound_flights": [
+        {
+          "flight_num": "NH762",
+          "time": "11:30 - 13:30",
+          "price": 16200
+        },
+        {
+          "flight_num": "NH764",
+          "time": "17:30 - 19:30",
+          "price": 17300
+        }
+      ],
+      "total_min_price": 32700
+    },
+    {
       "id": "ITM-CTS-JAL",
       "route_name": "大阪 (OSA) ➔ 札幌 (CTS)",
       "airline": "JAL",
@@ -235,27 +235,27 @@
         {
           "flight_num": "JL2081",
           "time": "08:30 - 10:45",
-          "price": 13500
+          "price": 14500
         },
         {
           "flight_num": "JL2083",
           "time": "14:15 - 16:30",
-          "price": 15000
+          "price": 16000
         }
       ],
       "inbound_flights": [
         {
           "flight_num": "JL2082",
           "time": "11:30 - 13:30",
-          "price": 13200
+          "price": 14200
         },
         {
           "flight_num": "JL2084",
           "time": "17:30 - 19:30",
-          "price": 14300
+          "price": 15300
         }
       ],
-      "total_min_price": 26700
+      "total_min_price": 28700
     },
     {
       "id": "TYO-OKA-ANA",
@@ -267,27 +267,27 @@
         {
           "flight_num": "NH761",
           "time": "08:30 - 10:45",
-          "price": 14500
+          "price": 16500
         },
         {
           "flight_num": "NH763",
           "time": "14:15 - 16:30",
-          "price": 16000
+          "price": 18000
         }
       ],
       "inbound_flights": [
         {
           "flight_num": "NH762",
           "time": "11:30 - 13:30",
-          "price": 14200
+          "price": 16200
         },
         {
           "flight_num": "NH764",
           "time": "17:30 - 19:30",
-          "price": 15300
+          "price": 17300
         }
       ],
-      "total_min_price": 28700
+      "total_min_price": 32700
     },
     {
       "id": "TYO-OKA-JAL",
@@ -299,27 +299,27 @@
         {
           "flight_num": "JL2081",
           "time": "08:30 - 10:45",
-          "price": 13500
+          "price": 14000
         },
         {
           "flight_num": "JL2083",
           "time": "14:15 - 16:30",
-          "price": 15000
+          "price": 15500
         }
       ],
       "inbound_flights": [
         {
           "flight_num": "JL2082",
           "time": "11:30 - 13:30",
-          "price": 13200
+          "price": 13700
         },
         {
           "flight_num": "JL2084",
           "time": "17:30 - 19:30",
-          "price": 14300
+          "price": 14800
         }
       ],
-      "total_min_price": 26700
+      "total_min_price": 27700
     },
     {
       "id": "TYO-FUK-ANA",
@@ -395,95 +395,31 @@
         {
           "flight_num": "NH761",
           "time": "08:30 - 10:45",
-          "price": 16500
+          "price": 15000
         },
         {
           "flight_num": "NH763",
           "time": "14:15 - 16:30",
-          "price": 18000
+          "price": 16500
         }
       ],
       "inbound_flights": [
         {
           "flight_num": "NH762",
           "time": "11:30 - 13:30",
-          "price": 16200
+          "price": 14700
         },
         {
           "flight_num": "NH764",
           "time": "17:30 - 19:30",
-          "price": 17300
+          "price": 15800
         }
       ],
-      "total_min_price": 32700
+      "total_min_price": 29700
     },
     {
       "id": "TYO-CTS-JAL",
       "route_name": "東京 (TYO) ➔ 札幌 (CTS)",
-      "airline": "JAL",
-      "outbound_date": "2026-10-25",
-      "inbound_date": "2026-10-28",
-      "outbound_flights": [
-        {
-          "flight_num": "JL2081",
-          "time": "08:30 - 10:45",
-          "price": 14000
-        },
-        {
-          "flight_num": "JL2083",
-          "time": "14:15 - 16:30",
-          "price": 15500
-        }
-      ],
-      "inbound_flights": [
-        {
-          "flight_num": "JL2082",
-          "time": "11:30 - 13:30",
-          "price": 13700
-        },
-        {
-          "flight_num": "JL2084",
-          "time": "17:30 - 19:30",
-          "price": 14800
-        }
-      ],
-      "total_min_price": 27700
-    },
-    {
-      "id": "TYO-OSA-ANA",
-      "route_name": "東京 (TYO) ➔ 大阪 (OSA)",
-      "airline": "ANA",
-      "outbound_date": "2026-10-25",
-      "inbound_date": "2026-10-28",
-      "outbound_flights": [
-        {
-          "flight_num": "NH761",
-          "time": "08:30 - 10:45",
-          "price": 14000
-        },
-        {
-          "flight_num": "NH763",
-          "time": "14:15 - 16:30",
-          "price": 15500
-        }
-      ],
-      "inbound_flights": [
-        {
-          "flight_num": "NH762",
-          "time": "11:30 - 13:30",
-          "price": 13700
-        },
-        {
-          "flight_num": "NH764",
-          "time": "17:30 - 19:30",
-          "price": 14800
-        }
-      ],
-      "total_min_price": 27700
-    },
-    {
-      "id": "TYO-OSA-JAL",
-      "route_name": "東京 (TYO) ➔ 大阪 (OSA)",
       "airline": "JAL",
       "outbound_date": "2026-10-25",
       "inbound_date": "2026-10-28",
@@ -512,6 +448,70 @@
         }
       ],
       "total_min_price": 26700
+    },
+    {
+      "id": "TYO-OSA-ANA",
+      "route_name": "東京 (TYO) ➔ 大阪 (OSA)",
+      "airline": "ANA",
+      "outbound_date": "2026-10-25",
+      "inbound_date": "2026-10-28",
+      "outbound_flights": [
+        {
+          "flight_num": "NH761",
+          "time": "08:30 - 10:45",
+          "price": 15000
+        },
+        {
+          "flight_num": "NH763",
+          "time": "14:15 - 16:30",
+          "price": 16500
+        }
+      ],
+      "inbound_flights": [
+        {
+          "flight_num": "NH762",
+          "time": "11:30 - 13:30",
+          "price": 14700
+        },
+        {
+          "flight_num": "NH764",
+          "time": "17:30 - 19:30",
+          "price": 15800
+        }
+      ],
+      "total_min_price": 29700
+    },
+    {
+      "id": "TYO-OSA-JAL",
+      "route_name": "東京 (TYO) ➔ 大阪 (OSA)",
+      "airline": "JAL",
+      "outbound_date": "2026-10-25",
+      "inbound_date": "2026-10-28",
+      "outbound_flights": [
+        {
+          "flight_num": "JL2081",
+          "time": "08:30 - 10:45",
+          "price": 14000
+        },
+        {
+          "flight_num": "JL2083",
+          "time": "14:15 - 16:30",
+          "price": 15500
+        }
+      ],
+      "inbound_flights": [
+        {
+          "flight_num": "JL2082",
+          "time": "11:30 - 13:30",
+          "price": 13700
+        },
+        {
+          "flight_num": "JL2084",
+          "time": "17:30 - 19:30",
+          "price": 14800
+        }
+      ],
+      "total_min_price": 27700
     }
   ]
 }
