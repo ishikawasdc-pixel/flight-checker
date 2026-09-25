@@ -296,12 +296,12 @@
 </head>
 <body>
 
-    <div class="hero">
-        <div class="nav-tabs">
-            <button class="tab-btn active">✈️ 航空券</button>
-            <button class="tab-btn">🏨 ホテル・宿</button>
-            <button class="tab-btn">🚗 レンタカー</button>
-        </div>
+    <!-- タブボタン部分 -->
+<div class="nav-tabs">
+    <button class="tab-btn active" id="tab-flight" onclick="changeTab('flight')">✈️ 航空券</button>
+    <button class="tab-btn" id="tab-train" onclick="changeTab('train')">🚆 鉄道路線</button>
+    <button class="tab-btn" id="tab-bus" onclick="changeTab('bus')">🚌 バス路線</button>
+</div>
 
         <h1 class="title">無数にある格安航空券をすばやく一括検索。</h1>
 
