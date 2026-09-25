@@ -1,4 +1,76 @@
-import os
+iimport json
+from datetime import datetime
+
+def generate_multi_flight_data():
+    # 複数パターン（路線・日付・航空会社）のデータ構造
+    database = [
+        # --- パターン1: 大阪 ⇆ 沖縄 (ANA) ---
+        {
+            "id": "osa_oka_20270205_ana",
+            "route_name": "大阪 (OSA) ⇆ 沖縄 (OKA)",
+            "outbound_date": "2027-02-05",
+            "inbound_date": "2027-02-08",
+            "airline": "ANA",
+            "total_min_price": 29500,
+            "outbound_flights": [
+                {"flight_num": "ANA761", "time": "08:00 発 -> 10:15 着", "price": 15000},
+                {"flight_num": "ANA763", "time": "11:15 発 -> 13:30 着", "price": 14500}
+            ],
+            "inbound_flights": [
+                {"flight_num": "ANA762", "time": "08:00 発 -> 10:00 着", "price": 16000},
+                {"flight_num": "ANA764", "time": "11:10 発 -> 13:05 着", "price": 15000}
+            ]
+        },
+        # --- パターン2: 大阪 ⇆ 沖縄 (JAL) ---
+        {
+            "id": "osa_oka_20270205_jal",
+            "route_name": "大阪 (OSA) ⇆ 沖縄 (OKA)",
+            "outbound_date": "2027-02-05",
+            "inbound_date": "2027-02-08",
+            "airline": "JAL",
+            "total_min_price": 31000,
+            "outbound_flights": [
+                {"flight_num": "JAL2081", "time": "08:50 発 -> 11:05 着", "price": 15500},
+                {"flight_num": "JAL2083", "time": "14:55 発 -> 17:10 着", "price": 16000}
+            ],
+            "inbound_flights": [
+                {"flight_num": "JAL2082", "time": "11:50 発 -> 13:40 着", "price": 15500},
+                {"flight_num": "JAL2088", "time": "18:00 発 -> 19:50 着", "price": 17000}
+            ]
+        },
+        # --- パターン3: 東京 ⇆ 福岡 (ANA) ---
+        {
+            "id": "tyo_fuk_20270301_ana",
+            "route_name": "東京 (TYO) ⇆ 福岡 (FUK)",
+            "outbound_date": "2027-03-01",
+            "inbound_date": "2027-03-04",
+            "airline": "ANA",
+            "total_min_price": 24000,
+            "outbound_flights": [
+                {"flight_num": "ANA241", "time": "07:25 発 -> 09:20 着", "price": 12000},
+                {"flight_num": "ANA243", "time": "08:30 発 -> 10:25 着", "price": 13500}
+            ],
+            "inbound_flights": [
+                {"flight_num": "ANA242", "time": "07:00 発 -> 08:35 着", "price": 12000},
+                {"flight_num": "ANA246", "time": "10:00 発 -> 11:35 着", "price": 14000}
+            ]
+        }
+    ]
+
+    data = {
+        "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "schedules": database
+    }
+    return data
+
+def main():
+    data = generate_multi_flight_data()
+    with open("data.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+    print("複数パターンの data.json 更新に成功しました！")
+
+if __name__ == "__main__":
+    main()mport os
 import json
 from datetime import datetime
 
