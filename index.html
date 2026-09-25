@@ -67,28 +67,32 @@
             letter-spacing: -0.5px;
         }
 
-        /* 検索バー */
+        /* 確実に横一列に並べるCSS設定 */
         .search-box-wrapper {
             background: #ffffff;
             border-radius: 12px;
             padding: 16px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) auto;
-            gap: 10px;
-            align-items: end;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            gap: 8px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
             color: #333;
+            width: 100%;
         }
 
-        @media (max-width: 850px) {
+        /* 画面幅が狭い場合（スマホ等）のみ折りたたむ */
+        @media (max-width: 768px) {
             .search-box-wrapper {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                align-items: stretch;
             }
         }
 
         .search-field {
             display: flex;
             flex-direction: column;
+            flex: 1; /* 各フィールドが均等に幅を分かち合う */
             min-width: 0;
         }
 
@@ -104,8 +108,8 @@
         .search-field select {
             border: 1px solid #ccc;
             border-radius: 6px;
-            padding: 10px 8px;
-            font-size: 14px;
+            padding: 10px 6px;
+            font-size: 13px;
             font-weight: 600;
             color: #1a202c;
             background-color: #f8fafc;
@@ -120,13 +124,14 @@
             color: white;
             border: none;
             border-radius: 8px;
-            padding: 0 24px;
+            padding: 0 20px;
             font-size: 15px;
             font-weight: 700;
             cursor: pointer;
             transition: background 0.2s;
-            height: 42px;
+            height: 41px;
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .search-btn:hover {
@@ -300,7 +305,7 @@
 
         <h1 class="title">無数にある格安航空券をすばやく一括検索。</h1>
 
-        <!-- 検索バー -->
+        <!-- 横一列固定の検索バー -->
         <div class="search-box-wrapper">
             <div class="search-field">
                 <label>出発地</label>
@@ -343,7 +348,6 @@
 
         <div class="sub-options">
             <label><input type="checkbox" checked disabled> 直行便のみ</label>
-            <!-- 往復チェックボックス（切り替え可能） -->
             <label><input type="checkbox" id="is-roundtrip" checked onchange="toggleRoundTrip()"> 往復</label>
             <label><input type="checkbox" disabled> エコノミー</label>
         </div>
@@ -367,11 +371,10 @@
             .then(data => {
                 globalData = data;
                 document.getElementById('updated-at').innerText = data.updated_at;
-                toggleRoundTrip(); // 往復切替状態の初期反映
-                executeSearch();    // 初期表示
+                toggleRoundTrip();
+                executeSearch();
             });
 
-        // 往復チェックボックスの切り替え処理
         function toggleRoundTrip() {
             const isRoundTrip = document.getElementById('is-roundtrip').checked;
             const returnDateField = document.getElementById('return-date-field');
@@ -392,7 +395,6 @@
             const selectedAirline = document.getElementById('airline-select').value;
             const isRoundTrip = document.getElementById('is-roundtrip').checked;
 
-            // 条件に合うスケジュールを抽出
             const matchedSchedules = globalData.schedules.filter(item => {
                 const matchRoute = item.route_name.includes(origin) && item.route_name.includes(destination);
                 const matchDate = item.outbound_date === selectedDate;
@@ -417,7 +419,6 @@
                 const itemContainer = document.createElement('div');
                 itemContainer.style.marginBottom = '40px';
 
-                // 行き（往路）カードの生成
                 let outboundCards = item.outbound_flights.map(f => `
                     <div class="flight-card">
                         <div class="airline-badge">${item.airline}</div>
@@ -432,7 +433,6 @@
                     </div>
                 `).join('');
 
-                // 帰り（復路）カードの生成
                 let inboundCards = item.inbound_flights.map(f => `
                     <div class="flight-card">
                         <div class="airline-badge">${item.airline}</div>
@@ -447,12 +447,10 @@
                     </div>
                 `).join('');
 
-                // 最安値表示（片道か往復かで計算表示を変更）
                 const minOutboundPrice = Math.min(...item.outbound_flights.map(f => f.price));
                 const priceLabel = isRoundTrip ? '往復最安値' : '片道最安値';
                 const displayPrice = isRoundTrip ? item.total_min_price : minOutboundPrice;
 
-                // 往復が有効な場合のみ復路エリアを表示
                 let returnSection = '';
                 if (isRoundTrip) {
                     returnSection = `
