@@ -3,53 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マルチ航空券価格チェッカー</title>
+    <title>格安航空券一括検索</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; color: #333; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h1 { color: #004098; font-size: 24px; border-bottom: 2px solid #004098; padding-bottom: 10px; margin-top: 0; }
-        .filter-box { background: #f0f4f8; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-        .filter-box label { font-weight: bold; margin-right: 10px; }
-        .filter-box select { padding: 8px 12px; font-size: 16px; border-radius: 6px; border: 1px solid #ccc; width: 100%; max-width: 400px; }
-        .info-card { background: #eef5ff; border-left: 5px solid #004098; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
-        .price-badge { font-size: 20px; font-weight: bold; color: #d9534f; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background-color: #f8f9fa; color: #555; }
-        .section-title { margin-top: 25px; font-size: 18px; color: #004098; font-weight: bold; }
-        .last-updated { font-size: 12px; color: #888; text-align: right; margin-top: 20px; }
+        :root {
+            --bg-dark: #07192f;
+            --card-bg: #0b223d;
+            --accent-blue: #0066ff;
+            --accent-hover: #0052cc;
+            --text-main: #ffffff;
+            --text-sub: #a0aec0;
+            --border-color: #1e3a5f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            padding-bottom: 50px;
+        }
+
+        /* ヒーローヘッダーエリア */
+        .hero {
+            background: linear-gradient(180deg, #051329 0%, #0a2540 100%);
+            padding: 40px 20px 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* タブ切り替えボタン */
+        .nav-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-main);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn.active {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        /* キャッチコピー */
+        .title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        /* 検索フォームコンテナ */
+        .search-box-wrapper {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            color: #333;
+        }
+
+        .search-field {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .search-field label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .search-field select {
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a202c;
+            background-color: #f8fafc;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .search-btn {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 32px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            height: 44px;
+            margin-top: auto;
+        }
+
+        .search-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        /* サブオプション */
+        .sub-options {
+            display: flex;
+            gap: 20px;
+            margin-top: 14px;
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        .sub-options label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        /* メインコンテンツエリア */
+        .container {
+            max-width: 1100px;
+            margin: 30px auto 0;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .summary-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .summary-info h3 {
+            font-size: 18px;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .summary-info p {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .price-tag {
+            text-align: right;
+        }
+
+        .price-tag span {
+            font-size: 26px;
+            font-weight: 800;
+            color: #ff4d4f;
+        }
+
+        /* 検索結果カード一覧 */
+        .flight-section-title {
+            font-size: 16px;
+            color: var(--text-sub);
+            margin: 20px 0 10px;
+            font-weight: 600;
+        }
+
+        .flight-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.2s, transform 0.1s;
+        }
+
+        .flight-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .airline-badge {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text-main);
+            width: 100px;
+        }
+
+        .flight-time-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .flight-num {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--accent-blue);
+        }
+
+        .flight-time {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .flight-price-box {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .flight-price {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .select-btn {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .footer-updated {
+            text-align: right;
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
+
+    <!-- ヒーローヘッダーエリア -->
+    <div class="hero">
+        <div class="nav-tabs">
+            <button class="tab-btn active">✈️ 航空券</button>
+            <button class="tab-btn">🏨 ホテル・宿</button>
+            <button class="tab-btn">🚗 レンタカー</button>
+        </div>
+
+        <h1 class="title">無数にある格安航空券をすばやく一括検索。</h1>
+
+        <!-- 検索バー風プルダウンフォーム -->
+        <div class="search-box-wrapper">
+            <div class="search-field">
+                <label>🔍 検索条件を選択（路線・日程・航空会社）</label>
+                <select id="schedule-select" onchange="changeSchedule()"></select>
+            </div>
+            <button class="search-btn" onclick="changeSchedule()">検索</button>
+        </div>
+
+        <div class="sub-options">
+            <label><input type="checkbox" checked disabled> 直行便のみ</label>
+            <label><input type="checkbox" checked disabled> 往復</label>
+            <label><input type="checkbox" disabled> エコノミー</label>
+        </div>
+    </div>
+
+    <!-- 検索結果コンテンツ -->
     <div class="container">
-        <h1>✈️ 航空券リアルタイム比較デモ</h1>
-        
-        <!-- プルダウン選択エリア -->
-        <div class="filter-box">
-            <label for="schedule-select">🔍 検索条件を選択:</label><br><br>
-            <select id="schedule-select" onchange="changeSchedule()"></select>
+        <div class="section-header">
+            <span>検索結果</span>
         </div>
 
-        <div class="info-card">
-            <p><strong>【路線】</strong> <span id="route">-</span></p>
-            <p><strong>【航空会社】</strong> <span id="airline">-</span></p>
-            <p><strong>【日程】</strong> 行き: <span id="outbound-date">-</span> ／ 帰り: <span id="inbound-date">-</span></p>
-            <p><strong>【往復最安値】</strong> <span class="price-badge" id="total-min-price">-</span></p>
+        <!-- 選択中のサマリーカード -->
+        <div class="summary-card">
+            <div class="summary-info">
+                <h3 id="route">-</h3>
+                <p>航空会社: <span id="airline" style="color:white; font-weight:bold;">-</span></p>
+                <p>日程: 行き <span id="outbound-date">-</span> ／ 帰り <span id="inbound-date">-</span></p>
+            </div>
+            <div class="price-tag">
+                <p style="font-size:12px; color:var(--text-sub);">往復最安値</p>
+                <span id="total-min-price">-</span>
+            </div>
         </div>
 
-        <div class="section-title">✈️ 行き（往路）</div>
-        <table>
-            <thead><tr><th>便名</th><th>時間</th><th>価格</th></tr></thead>
-            <tbody id="outbound-table"></tbody>
-        </table>
+        <!-- 行き便 -->
+        <div class="flight-section-title">✈️ 行き（往路）便一覧</div>
+        <div id="outbound-list"></div>
 
-        <div class="section-title">✈️ 帰り（復路）</div>
-        <table>
-            <thead><tr><th>便名</th><th>時間</th><th>価格</th></tr></thead>
-            <tbody id="inbound-table"></tbody>
-        </table>
+        <!-- 帰り便 -->
+        <div class="flight-section-title">✈️ 帰り（復路）便一覧</div>
+        <div id="inbound-list"></div>
 
-        <div class="last-updated">最終更新日時: <span id="updated-at">-</span></div>
+        <div class="footer-updated">データ最終更新: <span id="updated-at">-</span></div>
     </div>
 
     <script>
@@ -77,13 +358,13 @@
                 updateDisplay(0);
             });
 
-        // プルダウン切り替え時の処理
+        // 切り替え処理
         function changeSchedule() {
             const index = document.getElementById('schedule-select').value;
             updateDisplay(index);
         }
 
-        // 画面切り替え表示ロジック
+        // 画面描画ロジック
         function updateDisplay(index) {
             const item = globalData.schedules[index];
             document.getElementById('route').innerText = item.route_name;
@@ -92,18 +373,30 @@
             document.getElementById('inbound-date').innerText = item.inbound_date;
             document.getElementById('total-min-price').innerText = item.total_min_price.toLocaleString() + ' 円';
 
-            const renderTable = (targetId, flights) => {
-                const tbody = document.getElementById(targetId);
-                tbody.innerHTML = '';
+            // リスト描画
+            const renderList = (targetId, flights) => {
+                const container = document.getElementById(targetId);
+                container.innerHTML = '';
                 flights.forEach(f => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `<td><strong>${f.flight_num}</strong></td><td>${f.time}</td><td><strong>${f.price.toLocaleString()} 円</strong></td>`;
-                    tbody.appendChild(tr);
+                    const card = document.createElement('div');
+                    card.className = 'flight-card';
+                    card.innerHTML = `
+                        <div class="airline-badge">${item.airline}</div>
+                        <div class="flight-time-info">
+                            <span class="flight-num">${f.flight_num}</span>
+                            <span class="flight-time">${f.time}</span>
+                        </div>
+                        <div class="flight-price-box">
+                            <span class="flight-price">${f.price.toLocaleString()} 円</span>
+                            <button class="select-btn">選択</button>
+                        </div>
+                    `;
+                    container.appendChild(card);
                 });
             };
 
-            renderTable('outbound-table', item.outbound_flights);
-            renderTable('inbound-table', item.inbound_flights);
+            renderList('outbound-list', item.outbound_flights);
+            renderList('inbound-list', item.inbound_flights);
         }
     </script>
 </body>
