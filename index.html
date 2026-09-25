@@ -122,6 +122,46 @@
             text-overflow: ellipsis;
         }
 
+        /* 反転ボタンのスタイル */
+        .swap-btn-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 2px;
+        }
+
+        .swap-btn {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            color: #475569;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .swap-btn:hover {
+            background: var(--accent-blue);
+            color: #ffffff;
+            border-color: var(--accent-blue);
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 768px) {
+            .swap-btn-wrapper {
+                padding: 4px 0;
+            }
+            .swap-btn:hover {
+                transform: rotate(90deg);
+            }
+        }
+
         .search-btn {
             background: var(--accent-blue);
             color: white;
@@ -321,6 +361,12 @@
                     <option value="札幌 (CTS)">札幌 (CTS)</option>
                 </select>
             </div>
+
+            <!-- 反転ボタン -->
+            <div class="swap-btn-wrapper">
+                <button class="swap-btn" onclick="swapLocations()" title="出発地と目的地を反転">⇄</button>
+            </div>
+
             <div class="search-field">
                 <label>目的地</label>
                 <select id="destination-select">
@@ -381,6 +427,19 @@
                 toggleRoundTrip();
                 executeSearch();
             });
+
+        // 出発地と目的地の反転処理
+        function swapLocations() {
+            const originSelect = document.getElementById('origin-select');
+            const destSelect = document.getElementById('destination-select');
+
+            const temp = originSelect.value;
+            originSelect.value = destSelect.value;
+            destSelect.value = temp;
+
+            // 入れ替えた後に自動再検索
+            executeSearch();
+        }
 
         function initDateSelects(schedules) {
             const outboundDates = [...new Set(schedules.map(s => s.outbound_date))];
