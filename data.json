@@ -1,55 +1,64 @@
 {
-  "updated_at": "2026年09月25日 15:00 JST",
+  "updated_at": "2026年09月25日 15:07 JST",
   "schedules": [
     {
       "id": "OSA-OKA",
-      "route_name": "大阪 (OSA) ➔ 沖縄 (OKA)",
+      "route_name": "大阪 (関空・伊丹) ➔ 沖縄 (那覇)",
       "airline": "Peach",
       "outbound_date": "2026-10-25",
       "inbound_date": "2026-10-28",
       "outbound_flights": [
         {
           "flight_num": "Peach",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "07:15–09:25",
           "price": 8800
         },
         {
           "flight_num": "Peach",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "11:30–13:40",
           "price": 8600
         },
         {
           "flight_num": "Peach",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "15:20–17:30",
           "price": 8400
         },
         {
           "flight_num": "JAL",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
           "time": "08:35–10:45",
           "price": 16400
         },
         {
           "flight_num": "JAL",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
           "time": "14:10–16:20",
           "price": 16200
         },
         {
           "flight_num": "ANA",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
           "time": "09:50–12:00",
           "price": 16800
         },
         {
           "flight_num": "ANA",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
           "time": "16:45–18:55",
           "price": 16600
         },
         {
           "flight_num": "Jetstar",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "06:40–08:50",
           "price": 8400
         },
         {
           "flight_num": "Jetstar",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "13:00–15:10",
           "price": 8200
         }
@@ -57,46 +66,55 @@
       "inbound_flights": [
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "07:15–09:25",
           "price": 8850
         },
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "11:30–13:40",
           "price": 8700
         },
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "15:20–17:30",
           "price": 8550
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
           "time": "08:35–10:45",
           "price": 16450
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
           "time": "14:10–16:20",
           "price": 16300
         },
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
           "time": "09:50–12:00",
           "price": 16850
         },
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
           "time": "16:45–18:55",
           "price": 16700
         },
         {
           "flight_num": "Jetstar",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "06:40–08:50",
           "price": 8450
         },
         {
           "flight_num": "Jetstar",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "13:00–15:10",
           "price": 8300
         }
@@ -105,58 +123,68 @@
     },
     {
       "id": "TYO-OKA",
-      "route_name": "東京 (TYO) ➔ 沖縄 (OKA)",
+      "route_name": "東京 (羽田・成田) ➔ 沖縄 (那覇)",
       "airline": "ANA",
       "outbound_date": "2026-10-25",
       "inbound_date": "2026-10-28",
       "outbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "06:20–09:00",
           "price": 18400
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "10:30–13:15",
           "price": 18200
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "15:00–17:45",
           "price": 18000
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "07:30–10:15",
           "price": 18800
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "12:15–15:00",
           "price": 18600
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "16:30–19:15",
           "price": 18400
         },
         {
           "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 那覇 (OKA)",
           "time": "08:10–11:00",
           "price": 10400
         },
         {
           "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 那覇 (OKA)",
           "time": "14:25–17:15",
           "price": 10200
         },
         {
           "flight_num": "Skymark",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "09:10–12:00",
           "price": 13100
         },
         {
           "flight_num": "Skymark",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "18:00–20:50",
           "price": 12900
         }
@@ -164,51 +192,61 @@
       "inbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "06:20–09:00",
           "price": 18450
         },
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "10:30–13:15",
           "price": 18300
         },
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "15:00–17:45",
           "price": 18150
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "07:30–10:15",
           "price": 18850
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "12:15–15:00",
           "price": 18700
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "16:30–19:15",
           "price": 18550
         },
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 成田 (NRT)",
           "time": "08:10–11:00",
           "price": 10450
         },
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 成田 (NRT)",
           "time": "14:25–17:15",
           "price": 10300
         },
         {
           "flight_num": "Skymark",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "09:10–12:00",
           "price": 13150
         },
         {
           "flight_num": "Skymark",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "18:00–20:50",
           "price": 13000
         }
@@ -217,48 +255,56 @@
     },
     {
       "id": "TYO-FUK",
-      "route_name": "東京 (TYO) ➔ 福岡 (FUK)",
+      "route_name": "東京 (羽田・成田) ➔ 福岡 (FUK)",
       "airline": "ANA",
       "outbound_date": "2026-10-25",
       "inbound_date": "2026-10-28",
       "outbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "07:00–08:55",
           "price": 15100
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "11:00–12:55",
           "price": 14900
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "17:30–19:25",
           "price": 14700
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "08:00–09:55",
           "price": 15400
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "13:00–14:55",
           "price": 15200
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "18:30–20:25",
           "price": 15000
         },
         {
           "flight_num": "StarFlyer",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "09:30–11:25",
           "price": 13400
         },
         {
           "flight_num": "StarFlyer",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "15:15–17:10",
           "price": 13200
         }
@@ -266,41 +312,49 @@
       "inbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "07:00–08:55",
           "price": 15150
         },
         {
           "flight_num": "ANA",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "11:00–12:55",
           "price": 15000
         },
         {
           "flight_num": "ANA",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "17:30–19:25",
           "price": 14850
         },
         {
           "flight_num": "JAL",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "08:00–09:55",
           "price": 15450
         },
         {
           "flight_num": "JAL",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "13:00–14:55",
           "price": 15300
         },
         {
           "flight_num": "JAL",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "18:30–20:25",
           "price": 15150
         },
         {
           "flight_num": "StarFlyer",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "09:30–11:25",
           "price": 13450
         },
         {
           "flight_num": "StarFlyer",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "15:15–17:10",
           "price": 13300
         }
@@ -309,53 +363,62 @@
     },
     {
       "id": "TYO-CTS",
-      "route_name": "東京 (TYO) ➔ 札幌 (CTS)",
+      "route_name": "東京 (羽田・成田) ➔ 札幌 (新千歳)",
       "airline": "ANA",
       "outbound_date": "2026-10-25",
       "inbound_date": "2026-10-28",
       "outbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "06:50–08:25",
           "price": 14400
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "10:30–12:05",
           "price": 14200
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "16:00–17:35",
           "price": 14000
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "07:30–09:05",
           "price": 14800
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "12:00–13:35",
           "price": 14600
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "17:30–19:05",
           "price": 14400
         },
         {
           "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 新千歳 (CTS)",
           "time": "08:00–09:40",
           "price": 7400
         },
         {
           "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 新千歳 (CTS)",
           "time": "14:10–15:50",
           "price": 7200
         },
         {
           "flight_num": "Spring Japan",
+          "airport": "成田 (NRT) ➔ 新千歳 (CTS)",
           "time": "09:15–11:00",
           "price": 6800
         }
@@ -363,46 +426,55 @@
       "inbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "06:50–08:25",
           "price": 14450
         },
         {
           "flight_num": "ANA",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "10:30–12:05",
           "price": 14300
         },
         {
           "flight_num": "ANA",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "16:00–17:35",
           "price": 14150
         },
         {
           "flight_num": "JAL",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "07:30–09:05",
           "price": 14850
         },
         {
           "flight_num": "JAL",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "12:00–13:35",
           "price": 14700
         },
         {
           "flight_num": "JAL",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "17:30–19:05",
           "price": 14550
         },
         {
           "flight_num": "Peach",
+          "airport": "新千歳 (CTS) ➔ 成田 (NRT)",
           "time": "08:00–09:40",
           "price": 7450
         },
         {
           "flight_num": "Peach",
+          "airport": "新千歳 (CTS) ➔ 成田 (NRT)",
           "time": "14:10–15:50",
           "price": 7300
         },
         {
           "flight_num": "Spring Japan",
+          "airport": "新千歳 (CTS) ➔ 成田 (NRT)",
           "time": "09:15–11:00",
           "price": 6850
         }
@@ -411,53 +483,62 @@
     },
     {
       "id": "OSA-OKA",
-      "route_name": "大阪 (OSA) ➔ 沖縄 (OKA)",
+      "route_name": "大阪 (関空・伊丹) ➔ 沖縄 (那覇)",
       "airline": "Peach",
       "outbound_date": "2026-10-26",
       "inbound_date": "2026-10-29",
       "outbound_flights": [
         {
           "flight_num": "Peach",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "07:15–09:25",
           "price": 8600
         },
         {
           "flight_num": "Peach",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "11:30–13:40",
           "price": 8200
         },
         {
           "flight_num": "Peach",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "15:20–17:30",
           "price": 7800
         },
         {
           "flight_num": "JAL",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
           "time": "08:35–10:45",
           "price": 16200
         },
         {
           "flight_num": "JAL",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
           "time": "14:10–16:20",
           "price": 15800
         },
         {
           "flight_num": "ANA",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
           "time": "09:50–12:00",
           "price": 16600
         },
         {
           "flight_num": "ANA",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
           "time": "16:45–18:55",
           "price": 16200
         },
         {
           "flight_num": "Jetstar",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "06:40–08:50",
           "price": 8200
         },
         {
           "flight_num": "Jetstar",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "13:00–15:10",
           "price": 7800
         }
@@ -465,46 +546,55 @@
       "inbound_flights": [
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "07:15–09:25",
           "price": 7550
         },
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "11:30–13:40",
           "price": 7600
         },
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "15:20–17:30",
           "price": 7650
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
           "time": "08:35–10:45",
           "price": 15150
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
           "time": "14:10–16:20",
           "price": 15200
         },
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
           "time": "09:50–12:00",
           "price": 15550
         },
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
           "time": "16:45–18:55",
           "price": 15600
         },
         {
           "flight_num": "Jetstar",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "06:40–08:50",
           "price": 7150
         },
         {
           "flight_num": "Jetstar",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "13:00–15:10",
           "price": 7200
         }
@@ -513,58 +603,68 @@
     },
     {
       "id": "TYO-OKA",
-      "route_name": "東京 (TYO) ➔ 沖縄 (OKA)",
+      "route_name": "東京 (羽田・成田) ➔ 沖縄 (那覇)",
       "airline": "ANA",
       "outbound_date": "2026-10-26",
       "inbound_date": "2026-10-29",
       "outbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "06:20–09:00",
           "price": 18200
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "10:30–13:15",
           "price": 17800
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "15:00–17:45",
           "price": 17400
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "07:30–10:15",
           "price": 18600
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "12:15–15:00",
           "price": 18200
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "16:30–19:15",
           "price": 17800
         },
         {
           "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 那覇 (OKA)",
           "time": "08:10–11:00",
           "price": 10200
         },
         {
           "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 那覇 (OKA)",
           "time": "14:25–17:15",
           "price": 9800
         },
         {
           "flight_num": "Skymark",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "09:10–12:00",
           "price": 12900
         },
         {
           "flight_num": "Skymark",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "18:00–20:50",
           "price": 12500
         }
@@ -572,51 +672,61 @@
       "inbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "06:20–09:00",
           "price": 17150
         },
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "10:30–13:15",
           "price": 17200
         },
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "15:00–17:45",
           "price": 17250
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "07:30–10:15",
           "price": 17550
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "12:15–15:00",
           "price": 17600
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "16:30–19:15",
           "price": 17650
         },
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 成田 (NRT)",
           "time": "08:10–11:00",
           "price": 9150
         },
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 成田 (NRT)",
           "time": "14:25–17:15",
           "price": 9200
         },
         {
           "flight_num": "Skymark",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "09:10–12:00",
           "price": 11850
         },
         {
           "flight_num": "Skymark",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "18:00–20:50",
           "price": 11900
         }
@@ -625,48 +735,56 @@
     },
     {
       "id": "TYO-FUK",
-      "route_name": "東京 (TYO) ➔ 福岡 (FUK)",
+      "route_name": "東京 (羽田・成田) ➔ 福岡 (FUK)",
       "airline": "ANA",
       "outbound_date": "2026-10-26",
       "inbound_date": "2026-10-29",
       "outbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "07:00–08:55",
           "price": 14900
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "11:00–12:55",
           "price": 14500
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "17:30–19:25",
           "price": 14100
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "08:00–09:55",
           "price": 15200
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "13:00–14:55",
           "price": 14800
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "18:30–20:25",
           "price": 14400
         },
         {
           "flight_num": "StarFlyer",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "09:30–11:25",
           "price": 13200
         },
         {
           "flight_num": "StarFlyer",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "15:15–17:10",
           "price": 12800
         }
@@ -674,41 +792,49 @@
       "inbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "07:00–08:55",
           "price": 13850
         },
         {
           "flight_num": "ANA",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "11:00–12:55",
           "price": 13900
         },
         {
           "flight_num": "ANA",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "17:30–19:25",
           "price": 13950
         },
         {
           "flight_num": "JAL",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "08:00–09:55",
           "price": 14150
         },
         {
           "flight_num": "JAL",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "13:00–14:55",
           "price": 14200
         },
         {
           "flight_num": "JAL",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "18:30–20:25",
           "price": 14250
         },
         {
           "flight_num": "StarFlyer",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "09:30–11:25",
           "price": 12150
         },
         {
           "flight_num": "StarFlyer",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "15:15–17:10",
           "price": 12200
         }
@@ -717,53 +843,62 @@
     },
     {
       "id": "TYO-CTS",
-      "route_name": "東京 (TYO) ➔ 札幌 (CTS)",
+      "route_name": "東京 (羽田・成田) ➔ 札幌 (新千歳)",
       "airline": "ANA",
       "outbound_date": "2026-10-26",
       "inbound_date": "2026-10-29",
       "outbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "06:50–08:25",
           "price": 14200
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "10:30–12:05",
           "price": 13800
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "16:00–17:35",
           "price": 13400
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "07:30–09:05",
           "price": 14600
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "12:00–13:35",
           "price": 14200
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "17:30–19:05",
           "price": 13800
         },
         {
           "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 新千歳 (CTS)",
           "time": "08:00–09:40",
           "price": 7200
         },
         {
           "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 新千歳 (CTS)",
           "time": "14:10–15:50",
           "price": 6800
         },
         {
           "flight_num": "Spring Japan",
+          "airport": "成田 (NRT) ➔ 新千歳 (CTS)",
           "time": "09:15–11:00",
           "price": 6600
         }
@@ -771,46 +906,55 @@
       "inbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "06:50–08:25",
           "price": 13150
         },
         {
           "flight_num": "ANA",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "10:30–12:05",
           "price": 13200
         },
         {
           "flight_num": "ANA",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "16:00–17:35",
           "price": 13250
         },
         {
           "flight_num": "JAL",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "07:30–09:05",
           "price": 13550
         },
         {
           "flight_num": "JAL",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "12:00–13:35",
           "price": 13600
         },
         {
           "flight_num": "JAL",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "17:30–19:05",
           "price": 13650
         },
         {
           "flight_num": "Peach",
+          "airport": "新千歳 (CTS) ➔ 成田 (NRT)",
           "time": "08:00–09:40",
           "price": 6150
         },
         {
           "flight_num": "Peach",
+          "airport": "新千歳 (CTS) ➔ 成田 (NRT)",
           "time": "14:10–15:50",
           "price": 6200
         },
         {
           "flight_num": "Spring Japan",
+          "airport": "新千歳 (CTS) ➔ 成田 (NRT)",
           "time": "09:15–11:00",
           "price": 5550
         }
@@ -819,53 +963,62 @@
     },
     {
       "id": "OSA-OKA",
-      "route_name": "大阪 (OSA) ➔ 沖縄 (OKA)",
+      "route_name": "大阪 (関空・伊丹) ➔ 沖縄 (那覇)",
       "airline": "Peach",
       "outbound_date": "2026-10-27",
       "inbound_date": "2026-10-30",
       "outbound_flights": [
         {
           "flight_num": "Peach",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "07:15–09:25",
           "price": 8900
         },
         {
           "flight_num": "Peach",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "11:30–13:40",
           "price": 8800
         },
         {
           "flight_num": "Peach",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "15:20–17:30",
           "price": 8700
         },
         {
           "flight_num": "JAL",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
           "time": "08:35–10:45",
           "price": 16500
         },
         {
           "flight_num": "JAL",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
           "time": "14:10–16:20",
           "price": 16400
         },
         {
           "flight_num": "ANA",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
           "time": "09:50–12:00",
           "price": 16900
         },
         {
           "flight_num": "ANA",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
           "time": "16:45–18:55",
           "price": 16800
         },
         {
           "flight_num": "Jetstar",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "06:40–08:50",
           "price": 8500
         },
         {
           "flight_num": "Jetstar",
+          "airport": "関空 (KIX) ➔ 那覇 (OKA)",
           "time": "13:00–15:10",
           "price": 8400
         }
@@ -873,46 +1026,55 @@
       "inbound_flights": [
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "07:15–09:25",
           "price": 8750
         },
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "11:30–13:40",
           "price": 8500
         },
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "15:20–17:30",
           "price": 8250
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
           "time": "08:35–10:45",
           "price": 16350
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
           "time": "14:10–16:20",
           "price": 16100
         },
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
           "time": "09:50–12:00",
           "price": 16750
         },
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
           "time": "16:45–18:55",
           "price": 16500
         },
         {
           "flight_num": "Jetstar",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "06:40–08:50",
           "price": 8350
         },
         {
           "flight_num": "Jetstar",
+          "airport": "那覇 (OKA) ➔ 関空 (KIX)",
           "time": "13:00–15:10",
           "price": 8100
         }
@@ -921,58 +1083,68 @@
     },
     {
       "id": "TYO-OKA",
-      "route_name": "東京 (TYO) ➔ 沖縄 (OKA)",
+      "route_name": "東京 (羽田・成田) ➔ 沖縄 (那覇)",
       "airline": "ANA",
       "outbound_date": "2026-10-27",
       "inbound_date": "2026-10-30",
       "outbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "06:20–09:00",
           "price": 18500
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "10:30–13:15",
           "price": 18400
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "15:00–17:45",
           "price": 18300
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "07:30–10:15",
           "price": 18900
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "12:15–15:00",
           "price": 18800
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "16:30–19:15",
           "price": 18700
         },
         {
           "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 那覇 (OKA)",
           "time": "08:10–11:00",
           "price": 10500
         },
         {
           "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 那覇 (OKA)",
           "time": "14:25–17:15",
           "price": 10400
         },
         {
           "flight_num": "Skymark",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "09:10–12:00",
           "price": 13200
         },
         {
           "flight_num": "Skymark",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
           "time": "18:00–20:50",
           "price": 13100
         }
@@ -980,51 +1152,61 @@
       "inbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "06:20–09:00",
           "price": 18350
         },
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "10:30–13:15",
           "price": 18100
         },
         {
           "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "15:00–17:45",
           "price": 17850
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "07:30–10:15",
           "price": 18750
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "12:15–15:00",
           "price": 18500
         },
         {
           "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "16:30–19:15",
           "price": 18250
         },
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 成田 (NRT)",
           "time": "08:10–11:00",
           "price": 10350
         },
         {
           "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 成田 (NRT)",
           "time": "14:25–17:15",
           "price": 10100
         },
         {
           "flight_num": "Skymark",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "09:10–12:00",
           "price": 13050
         },
         {
           "flight_num": "Skymark",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
           "time": "18:00–20:50",
           "price": 12800
         }
@@ -1033,48 +1215,56 @@
     },
     {
       "id": "TYO-FUK",
-      "route_name": "東京 (TYO) ➔ 福岡 (FUK)",
+      "route_name": "東京 (羽田・成田) ➔ 福岡 (FUK)",
       "airline": "ANA",
       "outbound_date": "2026-10-27",
       "inbound_date": "2026-10-30",
       "outbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "07:00–08:55",
           "price": 15200
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "11:00–12:55",
           "price": 15100
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "17:30–19:25",
           "price": 15000
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "08:00–09:55",
           "price": 15500
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "13:00–14:55",
           "price": 15400
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "18:30–20:25",
           "price": 15300
         },
         {
           "flight_num": "StarFlyer",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "09:30–11:25",
           "price": 13500
         },
         {
           "flight_num": "StarFlyer",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
           "time": "15:15–17:10",
           "price": 13400
         }
@@ -1082,41 +1272,49 @@
       "inbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "07:00–08:55",
           "price": 15050
         },
         {
           "flight_num": "ANA",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "11:00–12:55",
           "price": 14800
         },
         {
           "flight_num": "ANA",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "17:30–19:25",
           "price": 14550
         },
         {
           "flight_num": "JAL",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "08:00–09:55",
           "price": 15350
         },
         {
           "flight_num": "JAL",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "13:00–14:55",
           "price": 15100
         },
         {
           "flight_num": "JAL",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "18:30–20:25",
           "price": 14850
         },
         {
           "flight_num": "StarFlyer",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "09:30–11:25",
           "price": 13350
         },
         {
           "flight_num": "StarFlyer",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
           "time": "15:15–17:10",
           "price": 13100
         }
@@ -1125,53 +1323,62 @@
     },
     {
       "id": "TYO-CTS",
-      "route_name": "東京 (TYO) ➔ 札幌 (CTS)",
+      "route_name": "東京 (羽田・成田) ➔ 札幌 (新千歳)",
       "airline": "ANA",
       "outbound_date": "2026-10-27",
       "inbound_date": "2026-10-30",
       "outbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "06:50–08:25",
           "price": 14500
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "10:30–12:05",
           "price": 14400
         },
         {
           "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "16:00–17:35",
           "price": 14300
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "07:30–09:05",
           "price": 14900
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "12:00–13:35",
           "price": 14800
         },
         {
           "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
           "time": "17:30–19:05",
           "price": 14700
         },
         {
           "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 新千歳 (CTS)",
           "time": "08:00–09:40",
           "price": 7500
         },
         {
           "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 新千歳 (CTS)",
           "time": "14:10–15:50",
           "price": 7400
         },
         {
           "flight_num": "Spring Japan",
+          "airport": "成田 (NRT) ➔ 新千歳 (CTS)",
           "time": "09:15–11:00",
           "price": 6900
         }
@@ -1179,46 +1386,55 @@
       "inbound_flights": [
         {
           "flight_num": "ANA",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "06:50–08:25",
           "price": 14350
         },
         {
           "flight_num": "ANA",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "10:30–12:05",
           "price": 14100
         },
         {
           "flight_num": "ANA",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "16:00–17:35",
           "price": 13850
         },
         {
           "flight_num": "JAL",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "07:30–09:05",
           "price": 14750
         },
         {
           "flight_num": "JAL",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "12:00–13:35",
           "price": 14500
         },
         {
           "flight_num": "JAL",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
           "time": "17:30–19:05",
           "price": 14250
         },
         {
           "flight_num": "Peach",
+          "airport": "新千歳 (CTS) ➔ 成田 (NRT)",
           "time": "08:00–09:40",
           "price": 7350
         },
         {
           "flight_num": "Peach",
+          "airport": "新千歳 (CTS) ➔ 成田 (NRT)",
           "time": "14:10–15:50",
           "price": 7100
         },
         {
           "flight_num": "Spring Japan",
+          "airport": "新千歳 (CTS) ➔ 成田 (NRT)",
           "time": "09:15–11:00",
           "price": 6750
         }
