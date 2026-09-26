@@ -1,268 +1,6 @@
 {
-  "updated_at": "2026年09月26日 00:02 JST",
+  "updated_at": "2026年09月26日 09:12 JST",
   "schedules": [
-    {
-      "id": "OSA-OKA",
-      "route_name": "大阪 (OSA) ➔ 沖縄 (OKA)",
-      "airline": "Peach",
-      "outbound_date": "2026-10-25",
-      "inbound_date": "2026-10-28",
-      "google_flight_url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-25%20through%202026-10-28",
-      "outbound_flights": [
-        {
-          "flight_num": "Peach",
-          "airport": "関西 (KIX) ➔ 那覇 (OKA)",
-          "time": "目安相場表示",
-          "price": 8200,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "JAL",
-          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
-          "time": "目安相場表示",
-          "price": 15800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "ANA",
-          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
-          "time": "目安相場表示",
-          "price": 16200,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "Jetstar",
-          "airport": "関西 (KIX) ➔ 那覇 (OKA)",
-          "time": "目安相場表示",
-          "price": 7800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-25%20through%202026-10-28"
-        }
-      ],
-      "inbound_flights": [
-        {
-          "flight_num": "Peach",
-          "airport": "那覇 (OKA) ➔ 関西 (KIX)",
-          "time": "目安相場表示",
-          "price": 8200,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "JAL",
-          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
-          "time": "目安相場表示",
-          "price": 15800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "ANA",
-          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
-          "time": "目安相場表示",
-          "price": 16200,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "Jetstar",
-          "airport": "那覇 (OKA) ➔ 関西 (KIX)",
-          "time": "目安相場表示",
-          "price": 7800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-25%20through%202026-10-28"
-        }
-      ],
-      "total_min_price": 15600
-    },
-    {
-      "id": "TYO-OKA",
-      "route_name": "東京 (TYO) ➔ 沖縄 (OKA)",
-      "airline": "ANA",
-      "outbound_date": "2026-10-25",
-      "inbound_date": "2026-10-28",
-      "google_flight_url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-25%20through%202026-10-28",
-      "outbound_flights": [
-        {
-          "flight_num": "ANA",
-          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
-          "time": "目安相場表示",
-          "price": 17800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "JAL",
-          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
-          "time": "目安相場表示",
-          "price": 18200,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "Peach",
-          "airport": "成田 (NRT) ➔ 那覇 (OKA)",
-          "time": "目安相場表示",
-          "price": 9800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "Skymark",
-          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
-          "time": "目安相場表示",
-          "price": 12500,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        }
-      ],
-      "inbound_flights": [
-        {
-          "flight_num": "ANA",
-          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
-          "time": "目安相場表示",
-          "price": 17800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "JAL",
-          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
-          "time": "目安相場表示",
-          "price": 18200,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "Peach",
-          "airport": "那覇 (OKA) ➔ 成田 (NRT)",
-          "time": "目安相場表示",
-          "price": 9800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "Skymark",
-          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
-          "time": "目安相場表示",
-          "price": 12500,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        }
-      ],
-      "total_min_price": 19600
-    },
-    {
-      "id": "TYO-FUK",
-      "route_name": "東京 (TYO) ➔ 福岡 (FUK)",
-      "airline": "ANA",
-      "outbound_date": "2026-10-25",
-      "inbound_date": "2026-10-28",
-      "google_flight_url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-25%20through%202026-10-28",
-      "outbound_flights": [
-        {
-          "flight_num": "ANA",
-          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
-          "time": "目安相場表示",
-          "price": 14500,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "JAL",
-          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
-          "time": "目安相場表示",
-          "price": 14800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "StarFlyer",
-          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
-          "time": "目安相場表示",
-          "price": 12800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        }
-      ],
-      "inbound_flights": [
-        {
-          "flight_num": "ANA",
-          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
-          "time": "目安相場表示",
-          "price": 14500,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "JAL",
-          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
-          "time": "目安相場表示",
-          "price": 14800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "StarFlyer",
-          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
-          "time": "目安相場表示",
-          "price": 12800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        }
-      ],
-      "total_min_price": 25600
-    },
-    {
-      "id": "TYO-CTS",
-      "route_name": "東京 (TYO) ➔ 札幌 (CTS)",
-      "airline": "ANA",
-      "outbound_date": "2026-10-25",
-      "inbound_date": "2026-10-28",
-      "google_flight_url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-25%20through%202026-10-28",
-      "outbound_flights": [
-        {
-          "flight_num": "ANA",
-          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
-          "time": "目安相場表示",
-          "price": 13800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "JAL",
-          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
-          "time": "目安相場表示",
-          "price": 14200,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "Peach",
-          "airport": "成田 (NRT) ➔ 新千歳 (CTS)",
-          "time": "目安相場表示",
-          "price": 6800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "Spring Japan",
-          "airport": "成田 (NRT) ➔ 新千歳 (CTS)",
-          "time": "目安相場表示",
-          "price": 6200,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        }
-      ],
-      "inbound_flights": [
-        {
-          "flight_num": "ANA",
-          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
-          "time": "目安相場表示",
-          "price": 13800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "JAL",
-          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
-          "time": "目安相場表示",
-          "price": 14200,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "Peach",
-          "airport": "新千歳 (CTS) ➔ 成田 (NRT)",
-          "time": "目安相場表示",
-          "price": 6800,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        },
-        {
-          "flight_num": "Spring Japan",
-          "airport": "新千歳 (CTS) ➔ 成田 (NRT)",
-          "time": "目安相場表示",
-          "price": 6200,
-          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-25%20through%202026-10-28"
-        }
-      ],
-      "total_min_price": 12400
-    },
     {
       "id": "OSA-OKA",
       "route_name": "大阪 (OSA) ➔ 沖縄 (OKA)",
@@ -783,6 +521,268 @@
           "time": "目安相場表示",
           "price": 6200,
           "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-27%20through%202026-10-30"
+        }
+      ],
+      "total_min_price": 12400
+    },
+    {
+      "id": "OSA-OKA",
+      "route_name": "大阪 (OSA) ➔ 沖縄 (OKA)",
+      "airline": "Peach",
+      "outbound_date": "2026-10-28",
+      "inbound_date": "2026-10-31",
+      "google_flight_url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-28%20through%202026-10-31",
+      "outbound_flights": [
+        {
+          "flight_num": "Peach",
+          "airport": "関西 (KIX) ➔ 那覇 (OKA)",
+          "time": "目安相場表示",
+          "price": 8200,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "JAL",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
+          "time": "目安相場表示",
+          "price": 15800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "ANA",
+          "airport": "伊丹 (ITM) ➔ 那覇 (OKA)",
+          "time": "目安相場表示",
+          "price": 16200,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "Jetstar",
+          "airport": "関西 (KIX) ➔ 那覇 (OKA)",
+          "time": "目安相場表示",
+          "price": 7800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-28%20through%202026-10-31"
+        }
+      ],
+      "inbound_flights": [
+        {
+          "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 関西 (KIX)",
+          "time": "目安相場表示",
+          "price": 8200,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
+          "time": "目安相場表示",
+          "price": 15800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 伊丹 (ITM)",
+          "time": "目安相場表示",
+          "price": 16200,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "Jetstar",
+          "airport": "那覇 (OKA) ➔ 関西 (KIX)",
+          "time": "目安相場表示",
+          "price": 7800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20OSA%20on%202026-10-28%20through%202026-10-31"
+        }
+      ],
+      "total_min_price": 15600
+    },
+    {
+      "id": "TYO-OKA",
+      "route_name": "東京 (TYO) ➔ 沖縄 (OKA)",
+      "airline": "ANA",
+      "outbound_date": "2026-10-28",
+      "inbound_date": "2026-10-31",
+      "google_flight_url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-28%20through%202026-10-31",
+      "outbound_flights": [
+        {
+          "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
+          "time": "目安相場表示",
+          "price": 17800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
+          "time": "目安相場表示",
+          "price": 18200,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 那覇 (OKA)",
+          "time": "目安相場表示",
+          "price": 9800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "Skymark",
+          "airport": "羽田 (HND) ➔ 那覇 (OKA)",
+          "time": "目安相場表示",
+          "price": 12500,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        }
+      ],
+      "inbound_flights": [
+        {
+          "flight_num": "ANA",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
+          "time": "目安相場表示",
+          "price": 17800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "JAL",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
+          "time": "目安相場表示",
+          "price": 18200,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "Peach",
+          "airport": "那覇 (OKA) ➔ 成田 (NRT)",
+          "time": "目安相場表示",
+          "price": 9800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "Skymark",
+          "airport": "那覇 (OKA) ➔ 羽田 (HND)",
+          "time": "目安相場表示",
+          "price": 12500,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20OKA%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        }
+      ],
+      "total_min_price": 19600
+    },
+    {
+      "id": "TYO-FUK",
+      "route_name": "東京 (TYO) ➔ 福岡 (FUK)",
+      "airline": "ANA",
+      "outbound_date": "2026-10-28",
+      "inbound_date": "2026-10-31",
+      "google_flight_url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-28%20through%202026-10-31",
+      "outbound_flights": [
+        {
+          "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
+          "time": "目安相場表示",
+          "price": 14500,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
+          "time": "目安相場表示",
+          "price": 14800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "StarFlyer",
+          "airport": "羽田 (HND) ➔ 福岡 (FUK)",
+          "time": "目安相場表示",
+          "price": 12800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        }
+      ],
+      "inbound_flights": [
+        {
+          "flight_num": "ANA",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
+          "time": "目安相場表示",
+          "price": 14500,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "JAL",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
+          "time": "目安相場表示",
+          "price": 14800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "StarFlyer",
+          "airport": "福岡 (FUK) ➔ 羽田 (HND)",
+          "time": "目安相場表示",
+          "price": 12800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20FUK%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        }
+      ],
+      "total_min_price": 25600
+    },
+    {
+      "id": "TYO-CTS",
+      "route_name": "東京 (TYO) ➔ 札幌 (CTS)",
+      "airline": "ANA",
+      "outbound_date": "2026-10-28",
+      "inbound_date": "2026-10-31",
+      "google_flight_url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-28%20through%202026-10-31",
+      "outbound_flights": [
+        {
+          "flight_num": "ANA",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
+          "time": "目安相場表示",
+          "price": 13800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "JAL",
+          "airport": "羽田 (HND) ➔ 新千歳 (CTS)",
+          "time": "目安相場表示",
+          "price": 14200,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "Peach",
+          "airport": "成田 (NRT) ➔ 新千歳 (CTS)",
+          "time": "目安相場表示",
+          "price": 6800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "Spring Japan",
+          "airport": "成田 (NRT) ➔ 新千歳 (CTS)",
+          "time": "目安相場表示",
+          "price": 6200,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        }
+      ],
+      "inbound_flights": [
+        {
+          "flight_num": "ANA",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
+          "time": "目安相場表示",
+          "price": 13800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "JAL",
+          "airport": "新千歳 (CTS) ➔ 羽田 (HND)",
+          "time": "目安相場表示",
+          "price": 14200,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "Peach",
+          "airport": "新千歳 (CTS) ➔ 成田 (NRT)",
+          "time": "目安相場表示",
+          "price": 6800,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
+        },
+        {
+          "flight_num": "Spring Japan",
+          "airport": "新千歳 (CTS) ➔ 成田 (NRT)",
+          "time": "目安相場表示",
+          "price": 6200,
+          "url": "https://www.google.com/travel/flights?q=Flights%20to%20CTS%20from%20TYO%20on%202026-10-28%20through%202026-10-31"
         }
       ],
       "total_min_price": 12400
